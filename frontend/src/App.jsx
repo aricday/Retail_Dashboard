@@ -69,6 +69,16 @@ export default function App() {
   const [categoryFilter, setCategoryFilter] = useState('All');
   const [actionFilter, setActionFilter] = useState('All');
   const [searchTerm, setSearchTerm] = useState('');
+  const [chatMessages, setChatMessages] = useState([
+    {
+      role: 'assistant',
+      content:
+        'Hi, I’m RETAILNEXT MERCHANDISING AI. Ask me about transfer opportunities, low-stock risk, or what to prioritize today.'
+    }
+  ]);
+  const [chatInput, setChatInput] = useState('');
+  const [chatLoading, setChatLoading] = useState(false);
+  const [chatError, setChatError] = useState('');
 
   const dashboard = useFetchJson(`${apiBase}/v1/dashboard/summary`, [apiBase]);
   const catalog = useFetchJson(`${apiBase}/v1/catalog/items`, [apiBase]);
@@ -133,6 +143,38 @@ export default function App() {
     setCategoryFilter('All');
     setActionFilter('All');
     setSearchTerm('');
+  };
+
+  const sendChat = async () => {
+    const trimmed = chatInput.trim();
+    if (!trimmed || chatLoading) return;
+
+    const nextMessages = [...chatMessages, { role: 'user', content: trimmed }];
+    setChatMessages(nextMessages);
+    setChatInput('');
+    setChatLoading(true);
+    setChatError('');
+
+    try {
+      const response = await fetch(`${apiBase}/v1/assistant/chat`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          region: 'Midwest',
+          messages: nextMessages.slice(-10)
+        })
+      });
+      const json = await response.json();
+      if (!response.ok) {
+        throw new Error(json.detail || json.error || `Request failed: ${response.status}`);
+      }
+
+      setChatMessages((messages) => [...messages, { role: 'assistant', content: json.reply || 'No reply returned.' }]);
+    } catch (error) {
+      setChatError(error.message || 'Unable to connect to assistant.');
+    } finally {
+      setChatLoading(false);
+    }
   };
 
   return (
@@ -350,6 +392,39 @@ export default function App() {
                 </tbody>
               </table>
             </div>
+          </section>
+
+          <section className="panel chat-panel">
+            <div className="panel-header">
+              <h2>RETAILNEXT MERCHANDISING AI</h2>
+              <span>OpenAI-powered assistant embedded in the dashboard</span>
+            </div>
+            <div className="chat-thread">
+              {chatMessages.map((message, index) => (
+                <div key={`${message.role}-${index}`} className={`chat-bubble ${message.role}`}>
+                  <strong>{message.role === 'assistant' ? 'Assistant' : 'You'}</strong>
+                  <p>{message.content}</p>
+                </div>
+              ))}
+              {chatLoading ? <div className="chat-loading">Thinking…</div> : null}
+            </div>
+            <div className="chat-input-row">
+              <input
+                value={chatInput}
+                onChange={(event) => setChatInput(event.target.value)}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter' && !event.shiftKey) {
+                    event.preventDefault();
+                    sendChat();
+                  }
+                }}
+                placeholder="Ask: What should I act on today in the Midwest?"
+              />
+              <button onClick={sendChat} disabled={chatLoading || !chatInput.trim()}>
+                Send
+              </button>
+            </div>
+            {chatError ? <div className="chat-error">{chatError}</div> : null}
           </section>
 
           <section className="panel">

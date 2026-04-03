@@ -64,7 +64,25 @@ The dashboard runs on the Vite default dev URL and points to `http://localhost:3
 - `GET /v1/inventory/snapshot?region=Midwest`
 - `GET /v1/sales/trends/viral?region=Midwest&window_days=7`
 - `POST /v1/analytics/pulse/query`
+- `POST /v1/assistant/chat` (OpenAI-backed chat endpoint for the in-dashboard assistant)
 - `GET /v1/replenishment/recommendations?region=Midwest`
+
+## OpenAI assistant integration
+
+The dashboard now includes a **RETAILNEXT MERCHANDISING AI** chat panel that calls the backend route
+`POST /v1/assistant/chat`.
+
+Configure these environment variables before starting the API server:
+
+```bash
+export OPENAI_API_KEY="your_openai_api_key"
+export OPENAI_MODEL="gpt-5.3" # optional
+export OPENAI_SYSTEM_PROMPT="Optional custom system prompt" # optional
+```
+
+Notes:
+- The API key is used only on the backend and is never exposed to the browser.
+- If you leave `OPENAI_SYSTEM_PROMPT` unset, the server builds a default merchandising-focused prompt from current dashboard data.
 
 ## Suggested demo flow
 

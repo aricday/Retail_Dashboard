@@ -107,6 +107,11 @@ button {
   cursor: pointer;
 }
 
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
 button.secondary {
   background: #e2e8f0;
   color: #0f172a;
@@ -250,6 +255,73 @@ button.secondary {
 
 .table-panel {
   margin-bottom: 18px;
+}
+
+.chat-panel {
+  margin-bottom: 18px;
+}
+
+.chat-thread {
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  background: #f8fafc;
+  padding: 14px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.chat-bubble {
+  max-width: 90%;
+  margin-bottom: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+}
+
+.chat-bubble strong {
+  display: block;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 6px;
+}
+
+.chat-bubble p {
+  margin: 0;
+  line-height: 1.5;
+  color: #1e293b;
+}
+
+.chat-bubble.user {
+  margin-left: auto;
+  background: #dbeafe;
+}
+
+.chat-bubble.assistant {
+  background: #e2e8f0;
+}
+
+.chat-input-row {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.chat-input-row input {
+  flex: 1;
+  padding: 11px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.chat-loading {
+  color: #475569;
+  font-size: 14px;
+}
+
+.chat-error {
+  margin-top: 10px;
+  color: #991b1b;
 }
 
 .table-wrap {
