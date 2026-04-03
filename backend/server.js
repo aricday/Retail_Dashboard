@@ -1055,6 +1055,51 @@ function parseBody(req) {
   });
 }
 
+function buildAssistantPrompt(region = 'Midwest') {
+  const dashboard = summary(region);
+  const topAlerts = dashboard.top_alerts
+    .slice(0, 3)
+    .map((item) => `${item.sku} (${item.style}) -> ${item.pulse.recommended_action}, score ${item.pulse.pulse_score}`)
+    .join('; ');
+
+  return [
+    'You are RETAILNEXT MERCHANDISING AI for a retail operations dashboard.',
+    'Be concise, actionable, and grounded in the provided data context.',
+    'When relevant, recommend one of: REORDER, TRANSFER, SAME_DAY_FULFILLMENT, MONITOR.',
+    'If data is missing, state that clearly instead of guessing.',
+    `Region in scope: ${region}.`,
+    `Current top alerts: ${topAlerts || 'No active alerts.'}`
+  ].join(' ');
+}
+
+function normalizeMessages(messages) {
+  if (!Array.isArray(messages)) return [];
+  return messages
+    .filter((msg) => msg && typeof msg.content === 'string')
+    .map((msg) => ({
+      role: msg.role === 'assistant' ? 'assistant' : 'user',
+      content: msg.content.trim()
+    }))
+    .filter((msg) => msg.content.length > 0)
+    .slice(-10);
+}
+
+function extractOutputText(responseJson) {
+  if (typeof responseJson.output_text === 'string' && responseJson.output_text.trim()) {
+    return responseJson.output_text.trim();
+  }
+
+  if (!Array.isArray(responseJson.output)) return '';
+  const chunks = [];
+  for (const item of responseJson.output) {
+    if (!Array.isArray(item.content)) continue;
+    for (const part of item.content) {
+      if (typeof part.text === 'string') chunks.push(part.text);
+    }
+  }
+  return chunks.join('\n').trim();
+}
+
 const server = http.createServer(async (req, res) => {
   if (req.method === 'OPTIONS') {
     res.writeHead(204, {
@@ -1238,6 +1283,64 @@ const server = http.createServer(async (req, res) => {
           deterministic_score_layer: true,
           source_systems: ['POS', 'Inventory', 'Product Catalog', 'Warehouse']
         }
+      });
+    }
+
+    if (req.method === 'POST' && pathname === '/v1/assistant/chat') {
+      const apiKey = process.env.OPENAI_API_KEY;
+      if (!apiKey) {
+        return sendJson(res, 503, {
+          error: 'OpenAI API key is not configured on the backend.',
+          detail: 'Set OPENAI_API_KEY before calling /v1/assistant/chat.'
+        });
+      }
+
+      const body = await parseBody(req);
+      const region = body.region || 'Midwest';
+      const messages = normalizeMessages(body.messages);
+      if (!messages.length) {
+        return sendJson(res, 400, { error: 'messages is required and must include at least one user message.' });
+      }
+
+      const model = process.env.OPENAI_MODEL || 'gpt-5.3';
+      const systemPrompt = process.env.OPENAI_SYSTEM_PROMPT || buildAssistantPrompt(region);
+      const input = [
+        {
+          role: 'system',
+          content: [{ type: 'input_text', text: systemPrompt }]
+        },
+        ...messages.map((message) => ({
+          role: message.role,
+          content: [{ type: 'input_text', text: message.content }]
+        }))
+      ];
+
+      const openaiResponse = await fetch('https://api.openai.com/v1/responses', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${apiKey}`
+        },
+        body: JSON.stringify({
+          model,
+          input,
+          temperature: 0.3
+        })
+      });
+
+      const responseJson = await openaiResponse.json();
+      if (!openaiResponse.ok) {
+        return sendJson(res, openaiResponse.status, {
+          error: 'OpenAI request failed',
+          detail: responseJson.error?.message || 'Unknown OpenAI API error'
+        });
+      }
+
+      const reply = extractOutputText(responseJson);
+      return sendJson(res, 200, {
+        model,
+        reply: reply || 'No response text returned by model.',
+        usage: responseJson.usage || null
       });
     }
 
