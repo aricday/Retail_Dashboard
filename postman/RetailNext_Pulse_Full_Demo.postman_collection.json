@@ -1,0 +1,358 @@
+{
+  "info": {
+    "name": "RetailNext Pulse Full Demo",
+    "_postman_id": "8b9ba08e-377d-4db5-a1f5-3d88d639b111",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Full-stack API demo for RetailNext Pulse."
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/v1/health",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "v1",
+            "health"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Dashboard Summary",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/v1/dashboard/summary",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "v1",
+            "dashboard",
+            "summary"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Dashboard Summary Example",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/v1/dashboard/summary",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "dashboard",
+                "summary"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"region\": \"Midwest\",\n  \"generated_at\": \"2026-04-01T10:00:00-05:00\",\n  \"meta\": {\n    \"source\": \"simulated-snowflake-warehouse\",\n    \"model_guardrails\": [\n      \"grounded-on-enterprise-data\",\n      \"deterministic-score-layer\",\n      \"scoped-api-access\"\n    ]\n  },\n  \"kpis\": {\n    \"trending_skus\": 7,\n    \"low_stock_risks\": 1,\n    \"transfer_candidates\": 1,\n    \"same_day_opportunities\": 1,\n    \"avg_pulse_score\": 54.4\n  },\n  \"style_summary\": [\n    {\n      \"style\": \"Eclectic Grandpa\",\n      \"sku_count\": 3,\n      \"avg_growth\": 23.2,\n      \"avg_pulse_score\": 61.4,\n      \"total_on_hand\": 106\n    },\n    {\n      \"style\": \"Workwear Revival\",\n      \"sku_count\": 3,\n      \"avg_growth\": 19.6,\n      \"avg_pulse_score\": 57.2,\n      \"total_on_hand\": 161\n    }\n  ],\n  \"category_summary\": [\n    {\n      \"category\": \"Knitwear\",\n      \"avg_growth\": 20.5,\n      \"total_on_hand\": 124,\n      \"actions\": 1\n    }\n  ],\n  \"top_alerts\": [\n    {\n      \"sku\": \"RN-1011\",\n      \"name\": \"Chunky Wool Grandpa Cardigan\",\n      \"style\": \"Eclectic Grandpa\",\n      \"pulse\": {\n        \"recommended_action\": \"REORDER\",\n        \"pulse_score\": 74.5\n      }\n    }\n  ],\n  \"insights\": [\n    \"Eclectic Grandpa knitwear is accelerating in Minneapolis and St. Paul, with stockout risk on RN-1011.\",\n    \"Workwear Revival denim is overstocked in St. Louis and Kansas City relative to Minneapolis demand.\",\n    \"Quiet Luxury blazers can recover otherwise lost sales through same-day fulfillment from nearby stores.\"\n  ]\n}"
+        }
+      ]
+    },
+    {
+      "name": "Catalog Items",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/v1/catalog/items",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "v1",
+            "catalog",
+            "items"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Catalog Items Example",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/v1/catalog/items",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "catalog",
+                "items"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"region\": \"Midwest\",\n  \"count\": 3,\n  \"items\": [\n    {\n      \"sku\": \"RN-1011\",\n      \"name\": \"Chunky Wool Grandpa Cardigan\",\n      \"category\": \"Knitwear\",\n      \"style\": \"Eclectic Grandpa\",\n      \"price\": 89.99,\n      \"inventory\": {\n        \"on_hand\": 17,\n        \"in_transit\": 2\n      },\n      \"pulse\": {\n        \"pulse_score\": 74.5,\n        \"week_over_week_growth\": 38.5,\n        \"recommended_action\": \"REORDER\",\n        \"flags\": [\n          \"LOW_STOCK\",\n          \"TRENDING\"\n        ]\n      }\n    },\n    {\n      \"sku\": \"RN-1012\",\n      \"name\": \"Relaxed Fit Carpenter Denim\",\n      \"category\": \"Denim\",\n      \"style\": \"Workwear Revival\",\n      \"price\": 74.99,\n      \"inventory\": {\n        \"on_hand\": 61,\n        \"in_transit\": 4\n      },\n      \"pulse\": {\n        \"pulse_score\": 72.1,\n        \"week_over_week_growth\": 22.0,\n        \"recommended_action\": \"TRANSFER\",\n        \"flags\": [\n          \"TRANSFER_OPPORTUNITY\",\n          \"TRENDING\"\n        ]\n      }\n    },\n    {\n      \"sku\": \"RN-1013\",\n      \"name\": \"Minimalist Tailored Blazer\",\n      \"category\": \"Outerwear\",\n      \"style\": \"Quiet Luxury\",\n      \"price\": 129.99,\n      \"inventory\": {\n        \"on_hand\": 27,\n        \"in_transit\": 1\n      },\n      \"pulse\": {\n        \"pulse_score\": 60.8,\n        \"week_over_week_growth\": 15.0,\n        \"recommended_action\": \"SAME_DAY_FULFILLMENT\",\n        \"flags\": [\n          \"SAME_DAY_ELIGIBLE\"\n        ]\n      }\n    }\n  ]\n}"
+        }
+      ]
+    },
+    {
+      "name": "Item Detail RN-1011",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/v1/catalog/item-detail?sku=RN-1011",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "v1",
+            "catalog",
+            "item-detail"
+          ],
+          "query": [
+            {
+              "key": "sku",
+              "value": "RN-1011"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Inventory Snapshot",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/v1/inventory/snapshot?region=Midwest",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "v1",
+            "inventory",
+            "snapshot"
+          ],
+          "query": [
+            {
+              "key": "region",
+              "value": "Midwest"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Store Inventory MSP01",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/v1/inventory/store?store_id=MSP01",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "v1",
+            "inventory",
+            "store"
+          ],
+          "query": [
+            {
+              "key": "store_id",
+              "value": "MSP01"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Viral Trends",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/v1/sales/trends/viral?region=Midwest&window_days=7",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "v1",
+            "sales",
+            "trends",
+            "viral"
+          ],
+          "query": [
+            {
+              "key": "region",
+              "value": "Midwest"
+            },
+            {
+              "key": "window_days",
+              "value": "7"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "Pulse Query",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"region\": \"Midwest\",\n  \"question\": \"What should I act on today in the Midwest?\",\n  \"limit\": 5\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/v1/analytics/pulse/query",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "v1",
+            "analytics",
+            "pulse",
+            "query"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Pulse Query Example",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"region\": \"Midwest\",\n  \"question\": \"What should I act on today in the Midwest?\",\n  \"limit\": 5\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/v1/analytics/pulse/query",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "analytics",
+                "pulse",
+                "query"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"region\": \"Midwest\",\n  \"question\": \"What should I act on today in the Midwest?\",\n  \"narrative\": \"Pulse reviewed POS sales, inventory, and catalog attributes to prioritize the highest-value actions.\",\n  \"insights\": [\n    {\n      \"sku\": \"RN-1011\",\n      \"name\": \"Chunky Wool Grandpa Cardigan\",\n      \"style\": \"Eclectic Grandpa\",\n      \"pulse_score\": 74.5,\n      \"action\": \"REORDER\",\n      \"why\": [\n        \"Demand is up 38.5% week over week.\",\n        \"Regional stock is running lean.\"\n      ]\n    },\n    {\n      \"sku\": \"RN-1012\",\n      \"name\": \"Relaxed Fit Carpenter Denim\",\n      \"style\": \"Workwear Revival\",\n      \"pulse_score\": 72.1,\n      \"action\": \"TRANSFER\",\n      \"why\": [\n        \"Demand is up 22% week over week.\",\n        \"Store inventory is unevenly distributed.\"\n      ]\n    }\n  ],\n  \"trust\": {\n    \"grounded_in_data\": true,\n    \"deterministic_score_layer\": true,\n    \"source_systems\": [\n      \"POS\",\n      \"Inventory\",\n      \"Product Catalog\",\n      \"Warehouse\"\n    ]\n  }\n}"
+        }
+      ]
+    },
+    {
+      "name": "Replenishment Recommendations",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/v1/replenishment/recommendations?region=Midwest",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            "v1",
+            "replenishment",
+            "recommendations"
+          ],
+          "query": [
+            {
+              "key": "region",
+              "value": "Midwest"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Replenishment Example",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/v1/replenishment/recommendations?region=Midwest",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "replenishment",
+                "recommendations"
+              ],
+              "query": [
+                {
+                  "key": "region",
+                  "value": "Midwest"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "application/json"
+            }
+          ],
+          "body": "{\n  \"region\": \"Midwest\",\n  \"recommendations\": [\n    {\n      \"sku\": \"RN-1011\",\n      \"action\": \"REORDER\",\n      \"reason\": \"High demand + low stock across Midwest stores\",\n      \"recommended_units\": 24\n    },\n    {\n      \"sku\": \"RN-1012\",\n      \"action\": \"TRANSFER\",\n      \"from_store\": \"STL01\",\n      \"to_store\": [\n        \"MSP01\",\n        \"MSP02\"\n      ],\n      \"recommended_units\": 12,\n      \"reason\": \"Move excess store inventory into the strongest demand cluster\"\n    },\n    {\n      \"sku\": \"RN-1013\",\n      \"action\": \"SAME_DAY_FULFILLMENT\",\n      \"from_store\": \"MSP02\",\n      \"to_store\": \"MSP01\",\n      \"recommended_units\": 1,\n      \"reason\": \"Save the sale through nearby same-day fulfillment\"\n    }\n  ]\n}"
+        }
+      ]
+    }
+  ]
+}

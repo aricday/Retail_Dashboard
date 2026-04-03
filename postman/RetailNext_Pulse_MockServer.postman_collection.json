@@ -1,0 +1,821 @@
+{
+  "info": {
+    "name": "RetailNext Pulse \u2013 Mock Server",
+    "_postman_id": "a1b2c3d4-0001-0002-0003-000000000001",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Complete collection with full saved examples for all endpoints. Import into Postman, create a Mock Server from this collection, copy the mock URL, and update the mockUrl environment variable."
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "{{mockUrl}}"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "item": [
+        {
+          "name": "GET /v1/health",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "health"
+              ],
+              "raw": "{{baseUrl}}/v1/health"
+            }
+          },
+          "response": [
+            {
+              "name": "GET /v1/health",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "health"
+                  ],
+                  "raw": "{{baseUrl}}/v1/health"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "body": "{\n  \"status\": \"ok\",\n  \"service\": \"RetailNext Pulse Demo API\",\n  \"warehouse\": \"Snowflake / BigQuery (simulated)\",\n  \"timestamp\": \"2026-04-01T10:00:00-05:00\"\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Dashboard",
+      "item": [
+        {
+          "name": "GET /v1/dashboard/summary",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "dashboard",
+                "summary"
+              ],
+              "query": [
+                {
+                  "key": "region",
+                  "value": "Midwest"
+                }
+              ],
+              "raw": "{{baseUrl}}/v1/dashboard/summary?region=Midwest"
+            }
+          },
+          "response": [
+            {
+              "name": "GET /v1/dashboard/summary",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "dashboard",
+                    "summary"
+                  ],
+                  "query": [
+                    {
+                      "key": "region",
+                      "value": "Midwest"
+                    }
+                  ],
+                  "raw": "{{baseUrl}}/v1/dashboard/summary?region=Midwest"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "body": "{\n  \"region\": \"Midwest\",\n  \"generated_at\": \"2026-04-01T10:00:00-05:00\",\n  \"meta\": {\n    \"source\": \"simulated-snowflake-warehouse\",\n    \"model_guardrails\": [\n      \"grounded-on-enterprise-data\",\n      \"deterministic-score-layer\",\n      \"scoped-api-access\"\n    ]\n  },\n  \"kpis\": {\n    \"trending_skus\": 6,\n    \"low_stock_risks\": 1,\n    \"transfer_candidates\": 1,\n    \"same_day_opportunities\": 1,\n    \"avg_pulse_score\": 39.7\n  },\n  \"style_summary\": [\n    {\n      \"style\": \"Workwear Revival\",\n      \"sku_count\": 3,\n      \"avg_growth\": 35.7,\n      \"avg_pulse_score\": 52.8,\n      \"total_on_hand\": 188\n    },\n    {\n      \"style\": \"Utility Heritage\",\n      \"sku_count\": 1,\n      \"avg_growth\": 35.3,\n      \"avg_pulse_score\": 48.3,\n      \"total_on_hand\": 63\n    },\n    {\n      \"style\": \"Eclectic Grandpa\",\n      \"sku_count\": 3,\n      \"avg_growth\": 27.2,\n      \"avg_pulse_score\": 47.8,\n      \"total_on_hand\": 127\n    },\n    {\n      \"style\": \"Quiet Luxury\",\n      \"sku_count\": 2,\n      \"avg_growth\": 15.3,\n      \"avg_pulse_score\": 41.8,\n      \"total_on_hand\": 80\n    },\n    {\n      \"style\": \"Quiet Prep\",\n      \"sku_count\": 2,\n      \"avg_growth\": 3.7,\n      \"avg_pulse_score\": 20.6,\n      \"total_on_hand\": 105\n    },\n    {\n      \"style\": \"Indie Sleaze 2.0\",\n      \"sku_count\": 2,\n      \"avg_growth\": 2.6,\n      \"avg_pulse_score\": 20.7,\n      \"total_on_hand\": 130\n    }\n  ],\n  \"category_summary\": [\n    {\n      \"category\": \"Knitwear\",\n      \"avg_growth\": 23.9,\n      \"total_on_hand\": 181,\n      \"actions\": 1\n    },\n    {\n      \"category\": \"Outerwear\",\n      \"avg_growth\": 33.4,\n      \"total_on_hand\": 147,\n      \"actions\": 1\n    },\n    {\n      \"category\": \"Denim\",\n      \"avg_growth\": 28.5,\n      \"total_on_hand\": 131,\n      \"actions\": 1\n    },\n    {\n      \"category\": \"Tops\",\n      \"avg_growth\": 2.6,\n      \"total_on_hand\": 130,\n      \"actions\": 0\n    },\n    {\n      \"category\": \"Bottoms\",\n      \"avg_growth\": 4.6,\n      \"total_on_hand\": 104,\n      \"actions\": 0\n    }\n  ],\n  \"top_alerts\": [\n    {\n      \"sku\": \"RN-1011\",\n      \"name\": \"Chunky Wool Grandpa Cardigan\",\n      \"category\": \"Knitwear\",\n      \"style\": \"Eclectic Grandpa\",\n      \"price\": 89.99,\n      \"color\": \"Heather Brown\",\n      \"attributes\": [\n        \"chunky\",\n        \"oversized\",\n        \"heritage\"\n      ],\n      \"gender\": \"Unisex\",\n      \"season\": \"Spring\",\n      \"inventory\": {\n        \"on_hand\": 17,\n        \"in_transit\": 2,\n        \"stores\": [\n          {\n            \"store_id\": \"MSP01\",\n            \"name\": \"Minneapolis Uptown\",\n            \"city\": \"Minneapolis\",\n            \"state\": \"MN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1011\",\n            \"on_hand\": 2,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          },\n          {\n            \"store_id\": \"MSP02\",\n            \"name\": \"St. Paul Grand\",\n            \"city\": \"St. Paul\",\n            \"state\": \"MN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1011\",\n            \"on_hand\": 1,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"CHI01\",\n            \"name\": \"Chicago Loop\",\n            \"city\": \"Chicago\",\n            \"state\": \"IL\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1011\",\n            \"on_hand\": 5,\n            \"in_transit\": 2,\n            \"reserved\": 0,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"STL01\",\n            \"name\": \"St. Louis Central West End\",\n            \"city\": \"St. Louis\",\n            \"state\": \"MO\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1011\",\n            \"on_hand\": 4,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"KCY01\",\n            \"name\": \"Kansas City Plaza\",\n            \"city\": \"Kansas City\",\n            \"state\": \"MO\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1011\",\n            \"on_hand\": 3,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          },\n          {\n            \"store_id\": \"IND01\",\n            \"name\": \"Indianapolis North\",\n            \"city\": \"Indianapolis\",\n            \"state\": \"IN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1011\",\n            \"on_hand\": 2,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          }\n        ]\n      },\n      \"pulse\": {\n        \"sku\": \"RN-1011\",\n        \"pulse_score\": 66.5,\n        \"current_week_units\": 36,\n        \"previous_week_units\": 26,\n        \"week_over_week_growth\": 38.5,\n        \"on_hand_units\": 17,\n        \"avg_on_hand_per_store\": 2.8,\n        \"flags\": [\n          \"LOW_STOCK\",\n          \"TRENDING\"\n        ],\n        \"recommended_action\": \"REORDER\",\n        \"reasons\": [\n          \"Demand is up 38.5% week over week.\",\n          \"Regional stock is running lean.\"\n        ],\n        \"nearby_same_day_store\": null\n      },\n      \"daily_sales\": [\n        {\n          \"date\": \"2026-03-26\",\n          \"units\": 4\n        },\n        {\n          \"date\": \"2026-03-27\",\n          \"units\": 5\n        },\n        {\n          \"date\": \"2026-03-28\",\n          \"units\": 5\n        },\n        {\n          \"date\": \"2026-03-29\",\n          \"units\": 5\n        },\n        {\n          \"date\": \"2026-03-30\",\n          \"units\": 5\n        },\n        {\n          \"date\": \"2026-03-31\",\n          \"units\": 6\n        },\n        {\n          \"date\": \"2026-04-01\",\n          \"units\": 6\n        }\n      ]\n    },\n    {\n      \"sku\": \"RN-1013\",\n      \"name\": \"Minimalist Tailored Blazer\",\n      \"category\": \"Outerwear\",\n      \"style\": \"Quiet Luxury\",\n      \"price\": 129.99,\n      \"color\": \"Soft Black\",\n      \"attributes\": [\n        \"tailored\",\n        \"neutral\",\n        \"premium\"\n      ],\n      \"gender\": \"Women\",\n      \"season\": \"All\",\n      \"inventory\": {\n        \"on_hand\": 27,\n        \"in_transit\": 1,\n        \"stores\": [\n          {\n            \"store_id\": \"MSP01\",\n            \"name\": \"Minneapolis Uptown\",\n            \"city\": \"Minneapolis\",\n            \"state\": \"MN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1013\",\n            \"on_hand\": 0,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          },\n          {\n            \"store_id\": \"MSP02\",\n            \"name\": \"St. Paul Grand\",\n            \"city\": \"St. Paul\",\n            \"state\": \"MN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1013\",\n            \"on_hand\": 4,\n            \"in_transit\": 1,\n            \"reserved\": 0,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"CHI01\",\n            \"name\": \"Chicago Loop\",\n            \"city\": \"Chicago\",\n            \"state\": \"IL\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1013\",\n            \"on_hand\": 12,\n            \"in_transit\": 0,\n            \"reserved\": 1,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"STL01\",\n            \"name\": \"St. Louis Central West End\",\n            \"city\": \"St. Louis\",\n            \"state\": \"MO\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1013\",\n            \"on_hand\": 6,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"KCY01\",\n            \"name\": \"Kansas City Plaza\",\n            \"city\": \"Kansas City\",\n            \"state\": \"MO\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1013\",\n            \"on_hand\": 3,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          },\n          {\n            \"store_id\": \"IND01\",\n            \"name\": \"Indianapolis North\",\n            \"city\": \"Indianapolis\",\n            \"state\": \"IN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1013\",\n            \"on_hand\": 2,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          }\n        ]\n      },\n      \"pulse\": {\n        \"sku\": \"RN-1013\",\n        \"pulse_score\": 53,\n        \"current_week_units\": 23,\n        \"previous_week_units\": 20,\n        \"week_over_week_growth\": 15,\n        \"on_hand_units\": 27,\n        \"avg_on_hand_per_store\": 4.5,\n        \"flags\": [\n          \"SAME_DAY_ELIGIBLE\"\n        ],\n        \"recommended_action\": \"SAME_DAY_FULFILLMENT\",\n        \"reasons\": [\n          \"Nearby stores can save the sale through same-day fulfillment.\"\n        ],\n        \"nearby_same_day_store\": {\n          \"store_id\": \"CHI01\",\n          \"name\": \"Chicago Loop\",\n          \"on_hand\": 12\n        }\n      },\n      \"daily_sales\": [\n        {\n          \"date\": \"2026-03-26\",\n          \"units\": 3\n        },\n        {\n          \"date\": \"2026-03-27\",\n          \"units\": 3\n        },\n        {\n          \"date\": \"2026-03-28\",\n          \"units\": 3\n        },\n        {\n          \"date\": \"2026-03-29\",\n          \"units\": 3\n        },\n        {\n          \"date\": \"2026-03-30\",\n          \"units\": 3\n        },\n        {\n          \"date\": \"2026-03-31\",\n          \"units\": 4\n        },\n        {\n          \"date\": \"2026-04-01\",\n          \"units\": 4\n        }\n      ]\n    },\n    {\n      \"sku\": \"RN-1012\",\n      \"name\": \"Relaxed Fit Carpenter Denim\",\n      \"category\": \"Denim\",\n      \"style\": \"Workwear Revival\",\n      \"price\": 74.99,\n      \"color\": \"Vintage Blue\",\n      \"attributes\": [\n        \"relaxed\",\n        \"utility\",\n        \"durable\"\n      ],\n      \"gender\": \"Men\",\n      \"season\": \"Spring\",\n      \"inventory\": {\n        \"on_hand\": 61,\n        \"in_transit\": 4,\n        \"stores\": [\n          {\n            \"store_id\": \"MSP01\",\n            \"name\": \"Minneapolis Uptown\",\n            \"city\": \"Minneapolis\",\n            \"state\": \"MN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1012\",\n            \"on_hand\": 3,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          },\n          {\n            \"store_id\": \"MSP02\",\n            \"name\": \"St. Paul Grand\",\n            \"city\": \"St. Paul\",\n            \"state\": \"MN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1012\",\n            \"on_hand\": 2,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"CHI01\",\n            \"name\": \"Chicago Loop\",\n            \"city\": \"Chicago\",\n            \"state\": \"IL\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1012\",\n            \"on_hand\": 7,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"STL01\",\n            \"name\": \"St. Louis Central West End\",\n            \"city\": \"St. Louis\",\n            \"state\": \"MO\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1012\",\n            \"on_hand\": 28,\n            \"in_transit\": 4,\n            \"reserved\": 2,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"KCY01\",\n            \"name\": \"Kansas City Plaza\",\n            \"city\": \"Kansas City\",\n            \"state\": \"MO\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1012\",\n            \"on_hand\": 16,\n            \"in_transit\": 0,\n            \"reserved\": 1,\n            \"same_day_eligible\": false\n          },\n          {\n            \"store_id\": \"IND01\",\n            \"name\": \"Indianapolis North\",\n            \"city\": \"Indianapolis\",\n            \"state\": \"IN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1012\",\n            \"on_hand\": 5,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          }\n        ]\n      },\n      \"pulse\": {\n        \"sku\": \"RN-1012\",\n        \"pulse_score\": 52.3,\n        \"current_week_units\": 50,\n        \"previous_week_units\": 41,\n        \"week_over_week_growth\": 22,\n        \"on_hand_units\": 61,\n        \"avg_on_hand_per_store\": 10.2,\n        \"flags\": [\n          \"TRANSFER_OPPORTUNITY\",\n          \"TRENDING\"\n        ],\n        \"recommended_action\": \"TRANSFER\",\n        \"reasons\": [\n          \"Demand is up 22% week over week.\",\n          \"Store inventory is unevenly distributed.\"\n        ],\n        \"nearby_same_day_store\": null\n      },\n      \"daily_sales\": [\n        {\n          \"date\": \"2026-03-26\",\n          \"units\": 6\n        },\n        {\n          \"date\": \"2026-03-27\",\n          \"units\": 7\n        },\n        {\n          \"date\": \"2026-03-28\",\n          \"units\": 7\n        },\n        {\n          \"date\": \"2026-03-29\",\n          \"units\": 7\n        },\n        {\n          \"date\": \"2026-03-30\",\n          \"units\": 7\n        },\n        {\n          \"date\": \"2026-03-31\",\n          \"units\": 8\n        },\n        {\n          \"date\": \"2026-04-01\",\n          \"units\": 8\n        }\n      ]\n    }\n  ],\n  \"insights\": [\n    \"Eclectic Grandpa knitwear is accelerating in Minneapolis and St. Paul, with stockout risk on RN-1011.\",\n    \"Workwear Revival denim is overstocked in St. Louis and Kansas City relative to Minneapolis demand.\",\n    \"Quiet Luxury blazers can recover otherwise lost sales through same-day fulfillment from nearby stores.\"\n  ]\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Catalog",
+      "item": [
+        {
+          "name": "GET /v1/catalog/styles",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "catalog",
+                "styles"
+              ],
+              "raw": "{{baseUrl}}/v1/catalog/styles"
+            }
+          },
+          "response": [
+            {
+              "name": "GET /v1/catalog/styles",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "catalog",
+                    "styles"
+                  ],
+                  "raw": "{{baseUrl}}/v1/catalog/styles"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "body": "{\n  \"region\": \"Midwest\",\n  \"styles\": [\n    {\n      \"style\": \"Eclectic Grandpa\",\n      \"sku_count\": 3,\n      \"categories\": [\n        \"Knitwear\"\n      ]\n    },\n    {\n      \"style\": \"Utility Heritage\",\n      \"sku_count\": 1,\n      \"categories\": [\n        \"Outerwear\"\n      ]\n    },\n    {\n      \"style\": \"Workwear Revival\",\n      \"sku_count\": 3,\n      \"categories\": [\n        \"Denim\",\n        \"Outerwear\"\n      ]\n    },\n    {\n      \"style\": \"Indie Sleaze 2.0\",\n      \"sku_count\": 2,\n      \"categories\": [\n        \"Tops\"\n      ]\n    },\n    {\n      \"style\": \"Quiet Luxury\",\n      \"sku_count\": 2,\n      \"categories\": [\n        \"Bottoms\",\n        \"Outerwear\"\n      ]\n    },\n    {\n      \"style\": \"Quiet Prep\",\n      \"sku_count\": 2,\n      \"categories\": [\n        \"Knitwear\",\n        \"Bottoms\"\n      ]\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "GET /v1/catalog/items",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "catalog",
+                "items"
+              ],
+              "query": [
+                {
+                  "key": "region",
+                  "value": "Midwest"
+                }
+              ],
+              "raw": "{{baseUrl}}/v1/catalog/items?region=Midwest"
+            }
+          },
+          "response": [
+            {
+              "name": "GET /v1/catalog/items",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "catalog",
+                    "items"
+                  ],
+                  "query": [
+                    {
+                      "key": "region",
+                      "value": "Midwest"
+                    }
+                  ],
+                  "raw": "{{baseUrl}}/v1/catalog/items?region=Midwest"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "body": "{\n  \"region\": \"Midwest\",\n  \"count\": 13,\n  \"items\": [\n    {\n      \"sku\": \"RN-1011\",\n      \"name\": \"Chunky Wool Grandpa Cardigan\",\n      \"category\": \"Knitwear\",\n      \"style\": \"Eclectic Grandpa\",\n      \"price\": 89.99,\n      \"color\": \"Heather Brown\",\n      \"attributes\": [\n        \"chunky\",\n        \"oversized\",\n        \"heritage\"\n      ],\n      \"gender\": \"Unisex\",\n      \"season\": \"Spring\",\n      \"inventory\": {\n        \"on_hand\": 17,\n        \"in_transit\": 2,\n        \"stores\": [\n          {\n            \"store_id\": \"MSP01\",\n            \"name\": \"Minneapolis Uptown\",\n            \"city\": \"Minneapolis\",\n            \"state\": \"MN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1011\",\n            \"on_hand\": 2,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          },\n          {\n            \"store_id\": \"MSP02\",\n            \"name\": \"St. Paul Grand\",\n            \"city\": \"St. Paul\",\n            \"state\": \"MN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1011\",\n            \"on_hand\": 1,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"CHI01\",\n            \"name\": \"Chicago Loop\",\n            \"city\": \"Chicago\",\n            \"state\": \"IL\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1011\",\n            \"on_hand\": 5,\n            \"in_transit\": 2,\n            \"reserved\": 0,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"STL01\",\n            \"name\": \"St. Louis Central West End\",\n            \"city\": \"St. Louis\",\n            \"state\": \"MO\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1011\",\n            \"on_hand\": 4,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"KCY01\",\n            \"name\": \"Kansas City Plaza\",\n            \"city\": \"Kansas City\",\n            \"state\": \"MO\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1011\",\n            \"on_hand\": 3,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          },\n          {\n            \"store_id\": \"IND01\",\n            \"name\": \"Indianapolis North\",\n            \"city\": \"Indianapolis\",\n            \"state\": \"IN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1011\",\n            \"on_hand\": 2,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          }\n        ]\n      },\n      \"pulse\": {\n        \"sku\": \"RN-1011\",\n        \"pulse_score\": 66.5,\n        \"current_week_units\": 36,\n        \"previous_week_units\": 26,\n        \"week_over_week_growth\": 38.5,\n        \"on_hand_units\": 17,\n        \"avg_on_hand_per_store\": 2.8,\n        \"flags\": [\n          \"LOW_STOCK\",\n          \"TRENDING\"\n        ],\n        \"recommended_action\": \"REORDER\",\n        \"reasons\": [\n          \"Demand is up 38.5% week over week.\",\n          \"Regional stock is running lean.\"\n        ],\n        \"nearby_same_day_store\": null\n      },\n      \"daily_sales\": [\n        {\n          \"date\": \"2026-03-26\",\n          \"units\": 4\n        },\n        {\n          \"date\": \"2026-03-27\",\n          \"units\": 5\n        },\n        {\n          \"date\": \"2026-03-28\",\n          \"units\": 5\n        },\n        {\n          \"date\": \"2026-03-29\",\n          \"units\": 5\n        },\n        {\n          \"date\": \"2026-03-30\",\n          \"units\": 5\n        },\n        {\n          \"date\": \"2026-03-31\",\n          \"units\": 6\n        },\n        {\n          \"date\": \"2026-04-01\",\n          \"units\": 6\n        }\n      ]\n    },\n    {\n      \"sku\": \"RN-1008\",\n      \"name\": \"Oversized Barn Jacket\",\n      \"category\": \"Outerwear\",\n      \"style\": \"Workwear Revival\",\n      \"price\": 119.99,\n      \"color\": \"Tan\",\n      \"attributes\": [\n        \"oversized\",\n        \"workwear\",\n        \"canvas\"\n      ],\n      \"gender\": \"Unisex\",\n      \"season\": \"Spring\",\n      \"inventory\": {\n        \"on_hand\": 57,\n        \"in_transit\": 0,\n        \"stores\": [\n          {\n            \"store_id\": \"MSP01\",\n            \"name\": \"Minneapolis Uptown\",\n            \"city\": \"Minneapolis\",\n            \"state\": \"MN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1008\",\n            \"on_hand\": 9,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          },\n          {\n            \"store_id\": \"MSP02\",\n            \"name\": \"St. Paul Grand\",\n            \"city\": \"St. Paul\",\n            \"state\": \"MN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1008\",\n            \"on_hand\": 8,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"CHI01\",\n            \"name\": \"Chicago Loop\",\n            \"city\": \"Chicago\",\n            \"state\": \"IL\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1008\",\n            \"on_hand\": 10,\n            \"in_transit\": 0,\n            \"reserved\": 1,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"STL01\",\n            \"name\": \"St. Louis Central West End\",\n            \"city\": \"St. Louis\",\n            \"state\": \"MO\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1008\",\n            \"on_hand\": 14,\n            \"in_transit\": 0,\n            \"reserved\": 1,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"KCY01\",\n            \"name\": \"Kansas City Plaza\",\n            \"city\": \"Kansas City\",\n            \"state\": \"MO\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1008\",\n            \"on_hand\": 9,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          },\n          {\n            \"store_id\": \"IND01\",\n            \"name\": \"Indianapolis North\",\n            \"city\": \"Indianapolis\",\n            \"state\": \"IN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1008\",\n            \"on_hand\": 7,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          }\n        ]\n      },\n      \"pulse\": {\n        \"sku\": \"RN-1008\",\n        \"pulse_score\": 54.1,\n        \"current_week_units\": 42,\n        \"previous_week_units\": 28,\n        \"week_over_week_growth\": 50,\n        \"on_hand_units\": 57,\n        \"avg_on_hand_per_store\": 9.5,\n        \"flags\": [\n          \"TRENDING\"\n        ],\n        \"recommended_action\": \"MONITOR\",\n        \"reasons\": [\n          \"Demand is up 50% week over week.\"\n        ],\n        \"nearby_same_day_store\": null\n      },\n      \"daily_sales\": [\n        {\n          \"date\": \"2026-03-26\",\n          \"units\": 5\n        },\n        {\n          \"date\": \"2026-03-27\",\n          \"units\": 6\n        },\n        {\n          \"date\": \"2026-03-28\",\n          \"units\": 6\n        },\n        {\n          \"date\": \"2026-03-29\",\n          \"units\": 6\n        },\n        {\n          \"date\": \"2026-03-30\",\n          \"units\": 6\n        },\n        {\n          \"date\": \"2026-03-31\",\n          \"units\": 6\n        },\n        {\n          \"date\": \"2026-04-01\",\n          \"units\": 7\n        }\n      ]\n    },\n    {\n      \"sku\": \"RN-1013\",\n      \"name\": \"Minimalist Tailored Blazer\",\n      \"category\": \"Outerwear\",\n      \"style\": \"Quiet Luxury\",\n      \"price\": 129.99,\n      \"color\": \"Soft Black\",\n      \"attributes\": [\n        \"tailored\",\n        \"neutral\",\n        \"premium\"\n      ],\n      \"gender\": \"Women\",\n      \"season\": \"All\",\n      \"inventory\": {\n        \"on_hand\": 27,\n        \"in_transit\": 1,\n        \"stores\": [\n          {\n            \"store_id\": \"MSP01\",\n            \"name\": \"Minneapolis Uptown\",\n            \"city\": \"Minneapolis\",\n            \"state\": \"MN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1013\",\n            \"on_hand\": 0,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          },\n          {\n            \"store_id\": \"MSP02\",\n            \"name\": \"St. Paul Grand\",\n            \"city\": \"St. Paul\",\n            \"state\": \"MN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1013\",\n            \"on_hand\": 4,\n            \"in_transit\": 1,\n            \"reserved\": 0,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"CHI01\",\n            \"name\": \"Chicago Loop\",\n            \"city\": \"Chicago\",\n            \"state\": \"IL\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1013\",\n            \"on_hand\": 12,\n            \"in_transit\": 0,\n            \"reserved\": 1,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"STL01\",\n            \"name\": \"St. Louis Central West End\",\n            \"city\": \"St. Louis\",\n            \"state\": \"MO\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1013\",\n            \"on_hand\": 6,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"KCY01\",\n            \"name\": \"Kansas City Plaza\",\n            \"city\": \"Kansas City\",\n            \"state\": \"MO\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1013\",\n            \"on_hand\": 3,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          },\n          {\n            \"store_id\": \"IND01\",\n            \"name\": \"Indianapolis North\",\n            \"city\": \"Indianapolis\",\n            \"state\": \"IN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1013\",\n            \"on_hand\": 2,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          }\n        ]\n      },\n      \"pulse\": {\n        \"sku\": \"RN-1013\",\n        \"pulse_score\": 53,\n        \"current_week_units\": 23,\n        \"previous_week_units\": 20,\n        \"week_over_week_growth\": 15,\n        \"on_hand_units\": 27,\n        \"avg_on_hand_per_store\": 4.5,\n        \"flags\": [\n          \"SAME_DAY_ELIGIBLE\"\n        ],\n        \"recommended_action\": \"SAME_DAY_FULFILLMENT\",\n        \"reasons\": [\n          \"Nearby stores can save the sale through same-day fulfillment.\"\n        ],\n        \"nearby_same_day_store\": {\n          \"store_id\": \"CHI01\",\n          \"name\": \"Chicago Loop\",\n          \"on_hand\": 12\n        }\n      },\n      \"daily_sales\": [\n        {\n          \"date\": \"2026-03-26\",\n          \"units\": 3\n        },\n        {\n          \"date\": \"2026-03-27\",\n          \"units\": 3\n        },\n        {\n          \"date\": \"2026-03-28\",\n          \"units\": 3\n        },\n        {\n          \"date\": \"2026-03-29\",\n          \"units\": 3\n        },\n        {\n          \"date\": \"2026-03-30\",\n          \"units\": 3\n        },\n        {\n          \"date\": \"2026-03-31\",\n          \"units\": 4\n        },\n        {\n          \"date\": \"2026-04-01\",\n          \"units\": 4\n        }\n      ]\n    },\n    {\n      \"sku\": \"RN-1012\",\n      \"name\": \"Relaxed Fit Carpenter Denim\",\n      \"category\": \"Denim\",\n      \"style\": \"Workwear Revival\",\n      \"price\": 74.99,\n      \"color\": \"Vintage Blue\",\n      \"attributes\": [\n        \"relaxed\",\n        \"utility\",\n        \"durable\"\n      ],\n      \"gender\": \"Men\",\n      \"season\": \"Spring\",\n      \"inventory\": {\n        \"on_hand\": 61,\n        \"in_transit\": 4,\n        \"stores\": [\n          {\n            \"store_id\": \"MSP01\",\n            \"name\": \"Minneapolis Uptown\",\n            \"city\": \"Minneapolis\",\n            \"state\": \"MN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1012\",\n            \"on_hand\": 3,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          },\n          {\n            \"store_id\": \"MSP02\",\n            \"name\": \"St. Paul Grand\",\n            \"city\": \"St. Paul\",\n            \"state\": \"MN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1012\",\n            \"on_hand\": 2,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"CHI01\",\n            \"name\": \"Chicago Loop\",\n            \"city\": \"Chicago\",\n            \"state\": \"IL\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1012\",\n            \"on_hand\": 7,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"STL01\",\n            \"name\": \"St. Louis Central West End\",\n            \"city\": \"St. Louis\",\n            \"state\": \"MO\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1012\",\n            \"on_hand\": 28,\n            \"in_transit\": 4,\n            \"reserved\": 2,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"KCY01\",\n            \"name\": \"Kansas City Plaza\",\n            \"city\": \"Kansas City\",\n            \"state\": \"MO\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1012\",\n            \"on_hand\": 16,\n            \"in_transit\": 0,\n            \"reserved\": 1,\n            \"same_day_eligible\": false\n          },\n          {\n            \"store_id\": \"IND01\",\n            \"name\": \"Indianapolis North\",\n            \"city\": \"Indianapolis\",\n            \"state\": \"IN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1012\",\n            \"on_hand\": 5,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          }\n        ]\n      },\n      \"pulse\": {\n        \"sku\": \"RN-1012\",\n        \"pulse_score\": 52.3,\n        \"current_week_units\": 50,\n        \"previous_week_units\": 41,\n        \"week_over_week_growth\": 22,\n        \"on_hand_units\": 61,\n        \"avg_on_hand_per_store\": 10.2,\n        \"flags\": [\n          \"TRANSFER_OPPORTUNITY\",\n          \"TRENDING\"\n        ],\n        \"recommended_action\": \"TRANSFER\",\n        \"reasons\": [\n          \"Demand is up 22% week over week.\",\n          \"Store inventory is unevenly distributed.\"\n        ],\n        \"nearby_same_day_store\": null\n      },\n      \"daily_sales\": [\n        {\n          \"date\": \"2026-03-26\",\n          \"units\": 6\n        },\n        {\n          \"date\": \"2026-03-27\",\n          \"units\": 7\n        },\n        {\n          \"date\": \"2026-03-28\",\n          \"units\": 7\n        },\n        {\n          \"date\": \"2026-03-29\",\n          \"units\": 7\n        },\n        {\n          \"date\": \"2026-03-30\",\n          \"units\": 7\n        },\n        {\n          \"date\": \"2026-03-31\",\n          \"units\": 8\n        },\n        {\n          \"date\": \"2026-04-01\",\n          \"units\": 8\n        }\n      ]\n    },\n    {\n      \"sku\": \"RN-1004\",\n      \"name\": \"Wide-Leg Carpenter Jean\",\n      \"category\": \"Denim\",\n      \"style\": \"Workwear Revival\",\n      \"price\": 78.99,\n      \"color\": \"Indigo\",\n      \"attributes\": [\n        \"wide-leg\",\n        \"utility\",\n        \"durable\"\n      ],\n      \"gender\": \"Women\",\n      \"season\": \"Spring\",\n      \"inventory\": {\n        \"on_hand\": 70,\n        \"in_transit\": 0,\n        \"stores\": [\n          {\n            \"store_id\": \"MSP01\",\n            \"name\": \"Minneapolis Uptown\",\n            \"city\": \"Minneapolis\",\n            \"state\": \"MN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1004\",\n            \"on_hand\": 8,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          },\n          {\n            \"store_id\": \"MSP02\",\n            \"name\": \"St. Paul Grand\",\n            \"city\": \"St. Paul\",\n            \"state\": \"MN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1004\",\n            \"on_hand\": 10,\n            \"in_transit\": 0,\n            \"reserved\": 1,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"CHI01\",\n            \"name\": \"Chicago Loop\",\n            \"city\": \"Chicago\",\n            \"state\": \"IL\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1004\",\n            \"on_hand\": 12,\n            \"in_transit\": 0,\n            \"reserved\": 1,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"STL01\",\n            \"name\": \"St. Louis Central West End\",\n            \"city\": \"St. Louis\",\n            \"state\": \"MO\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1004\",\n            \"on_hand\": 18,\n            \"in_transit\": 0,\n            \"reserved\": 1,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"KCY01\",\n            \"name\": \"Kansas City Plaza\",\n            \"city\": \"Kansas City\",\n            \"state\": \"MO\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1004\",\n            \"on_hand\": 13,\n            \"in_transit\": 0,\n            \"reserved\": 1,\n            \"same_day_eligible\": false\n          },\n          {\n            \"store_id\": \"IND01\",\n            \"name\": \"Indianapolis North\",\n            \"city\": \"Indianapolis\",\n            \"state\": \"IN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1004\",\n            \"on_hand\": 9,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          }\n        ]\n      },\n      \"pulse\": {\n        \"sku\": \"RN-1004\",\n        \"pulse_score\": 52,\n        \"current_week_units\": 54,\n        \"previous_week_units\": 40,\n        \"week_over_week_growth\": 35,\n        \"on_hand_units\": 70,\n        \"avg_on_hand_per_store\": 11.7,\n        \"flags\": [\n          \"TRENDING\"\n        ],\n        \"recommended_action\": \"MONITOR\",\n        \"reasons\": [\n          \"Demand is up 35% week over week.\"\n        ],\n        \"nearby_same_day_store\": null\n      },\n      \"daily_sales\": [\n        {\n          \"date\": \"2026-03-26\",\n          \"units\": 7\n        },\n        {\n          \"date\": \"2026-03-27\",\n          \"units\": 7\n        },\n        {\n          \"date\": \"2026-03-28\",\n          \"units\": 8\n        },\n        {\n          \"date\": \"2026-03-29\",\n          \"units\": 8\n        },\n        {\n          \"date\": \"2026-03-30\",\n          \"units\": 8\n        },\n        {\n          \"date\": \"2026-03-31\",\n          \"units\": 8\n        },\n        {\n          \"date\": \"2026-04-01\",\n          \"units\": 8\n        }\n      ]\n    },\n    {\n      \"sku\": \"RN-1003\",\n      \"name\": \"Relaxed Utility Chore Jacket\",\n      \"category\": \"Outerwear\",\n      \"style\": \"Utility Heritage\",\n      \"price\": 109.99,\n      \"color\": \"Olive\",\n      \"attributes\": [\n        \"utility\",\n        \"layering\",\n        \"canvas\"\n      ],\n      \"gender\": \"Unisex\",\n      \"season\": \"Spring\",\n      \"inventory\": {\n        \"on_hand\": 63,\n        \"in_transit\": 0,\n        \"stores\": [\n          {\n            \"store_id\": \"MSP01\",\n            \"name\": \"Minneapolis Uptown\",\n            \"city\": \"Minneapolis\",\n            \"state\": \"MN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1003\",\n            \"on_hand\": 12,\n            \"in_transit\": 0,\n            \"reserved\": 1,\n            \"same_day_eligible\": false\n          },\n          {\n            \"store_id\": \"MSP02\",\n            \"name\": \"St. Paul Grand\",\n            \"city\": \"St. Paul\",\n            \"state\": \"MN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1003\",\n            \"on_hand\": 11,\n            \"in_transit\": 0,\n            \"reserved\": 1,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"CHI01\",\n            \"name\": \"Chicago Loop\",\n            \"city\": \"Chicago\",\n            \"state\": \"IL\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1003\",\n            \"on_hand\": 10,\n            \"in_transit\": 0,\n            \"reserved\": 1,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"STL01\",\n            \"name\": \"St. Louis Central West End\",\n            \"city\": \"St. Louis\",\n            \"state\": \"MO\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1003\",\n            \"on_hand\": 13,\n            \"in_transit\": 0,\n            \"reserved\": 1,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"KCY01\",\n            \"name\": \"Kansas City Plaza\",\n            \"city\": \"Kansas City\",\n            \"state\": \"MO\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1003\",\n            \"on_hand\": 9,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          },\n          {\n            \"store_id\": \"IND01\",\n            \"name\": \"Indianapolis North\",\n            \"city\": \"Indianapolis\",\n            \"state\": \"IN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1003\",\n            \"on_hand\": 8,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          }\n        ]\n      },\n      \"pulse\": {\n        \"sku\": \"RN-1003\",\n        \"pulse_score\": 48.3,\n        \"current_week_units\": 46,\n        \"previous_week_units\": 34,\n        \"week_over_week_growth\": 35.3,\n        \"on_hand_units\": 63,\n        \"avg_on_hand_per_store\": 10.5,\n        \"flags\": [\n          \"TRENDING\"\n        ],\n        \"recommended_action\": \"MONITOR\",\n        \"reasons\": [\n          \"Demand is up 35.3% week over week.\"\n        ],\n        \"nearby_same_day_store\": null\n      },\n      \"daily_sales\": [\n        {\n          \"date\": \"2026-03-26\",\n          \"units\": 6\n        },\n        {\n          \"date\": \"2026-03-27\",\n          \"units\": 6\n        },\n        {\n          \"date\": \"2026-03-28\",\n          \"units\": 6\n        },\n        {\n          \"date\": \"2026-03-29\",\n          \"units\": 6\n        },\n        {\n          \"date\": \"2026-03-30\",\n          \"units\": 7\n        },\n        {\n          \"date\": \"2026-03-31\",\n          \"units\": 7\n        },\n        {\n          \"date\": \"2026-04-01\",\n          \"units\": 8\n        }\n      ]\n    },\n    {\n      \"sku\": \"RN-1001\",\n      \"name\": \"Heritage Cable Cardigan\",\n      \"category\": \"Knitwear\",\n      \"style\": \"Eclectic Grandpa\",\n      \"price\": 84.99,\n      \"color\": \"Oatmeal\",\n      \"attributes\": [\n        \"chunky\",\n        \"heritage\",\n        \"layering\"\n      ],\n      \"gender\": \"Unisex\",\n      \"season\": \"Spring\",\n      \"inventory\": {\n        \"on_hand\": 64,\n        \"in_transit\": 0,\n        \"stores\": [\n          {\n            \"store_id\": \"MSP01\",\n            \"name\": \"Minneapolis Uptown\",\n            \"city\": \"Minneapolis\",\n            \"state\": \"MN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1001\",\n            \"on_hand\": 14,\n            \"in_transit\": 0,\n            \"reserved\": 1,\n            \"same_day_eligible\": false\n          },\n          {\n            \"store_id\": \"MSP02\",\n            \"name\": \"St. Paul Grand\",\n            \"city\": \"St. Paul\",\n            \"state\": \"MN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1001\",\n            \"on_hand\": 10,\n            \"in_transit\": 0,\n            \"reserved\": 1,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"CHI01\",\n            \"name\": \"Chicago Loop\",\n            \"city\": \"Chicago\",\n            \"state\": \"IL\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1001\",\n            \"on_hand\": 16,\n            \"in_transit\": 0,\n            \"reserved\": 1,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"STL01\",\n            \"name\": \"St. Louis Central West End\",\n            \"city\": \"St. Louis\",\n            \"state\": \"MO\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1001\",\n            \"on_hand\": 9,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"KCY01\",\n            \"name\": \"Kansas City Plaza\",\n            \"city\": \"Kansas City\",\n            \"state\": \"MO\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1001\",\n            \"on_hand\": 8,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          },\n          {\n            \"store_id\": \"IND01\",\n            \"name\": \"Indianapolis North\",\n            \"city\": \"Indianapolis\",\n            \"state\": \"IN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1001\",\n            \"on_hand\": 7,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          }\n        ]\n      },\n      \"pulse\": {\n        \"sku\": \"RN-1001\",\n        \"pulse_score\": 46,\n        \"current_week_units\": 62,\n        \"previous_week_units\": 48,\n        \"week_over_week_growth\": 29.2,\n        \"on_hand_units\": 64,\n        \"avg_on_hand_per_store\": 10.7,\n        \"flags\": [\n          \"TRENDING\"\n        ],\n        \"recommended_action\": \"MONITOR\",\n        \"reasons\": [\n          \"Demand is up 29.2% week over week.\"\n        ],\n        \"nearby_same_day_store\": null\n      },\n      \"daily_sales\": [\n        {\n          \"date\": \"2026-03-26\",\n          \"units\": 8\n        },\n        {\n          \"date\": \"2026-03-27\",\n          \"units\": 8\n        },\n        {\n          \"date\": \"2026-03-28\",\n          \"units\": 9\n        },\n        {\n          \"date\": \"2026-03-29\",\n          \"units\": 9\n        },\n        {\n          \"date\": \"2026-03-30\",\n          \"units\": 9\n        },\n        {\n          \"date\": \"2026-03-31\",\n          \"units\": 9\n        },\n        {\n          \"date\": \"2026-04-01\",\n          \"units\": 10\n        }\n      ]\n    },\n    {\n      \"sku\": \"RN-1010\",\n      \"name\": \"Washed Mesh Layer Top\",\n      \"category\": \"Tops\",\n      \"style\": \"Indie Sleaze 2.0\",\n      \"price\": 39.99,\n      \"color\": \"Smoke\",\n      \"attributes\": [\n        \"mesh\",\n        \"layering\",\n        \"sheer\"\n      ],\n      \"gender\": \"Women\",\n      \"season\": \"Spring\",\n      \"inventory\": {\n        \"on_hand\": 60,\n        \"in_transit\": 0,\n        \"stores\": [\n          {\n            \"store_id\": \"MSP01\",\n            \"name\": \"Minneapolis Uptown\",\n            \"city\": \"Minneapolis\",\n            \"state\": \"MN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1010\",\n            \"on_hand\": 12,\n            \"in_transit\": 0,\n            \"reserved\": 1,\n            \"same_day_eligible\": false\n          },\n          {\n            \"store_id\": \"MSP02\",\n            \"name\": \"St. Paul Grand\",\n            \"city\": \"St. Paul\",\n            \"state\": \"MN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1010\",\n            \"on_hand\": 13,\n            \"in_transit\": 0,\n            \"reserved\": 1,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"CHI01\",\n            \"name\": \"Chicago Loop\",\n            \"city\": \"Chicago\",\n            \"state\": \"IL\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1010\",\n            \"on_hand\": 11,\n            \"in_transit\": 0,\n            \"reserved\": 1,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"STL01\",\n            \"name\": \"St. Louis Central West End\",\n            \"city\": \"St. Louis\",\n            \"state\": \"MO\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1010\",\n            \"on_hand\": 8,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"KCY01\",\n            \"name\": \"Kansas City Plaza\",\n            \"city\": \"Kansas City\",\n            \"state\": \"MO\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1010\",\n            \"on_hand\": 9,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          },\n          {\n            \"store_id\": \"IND01\",\n            \"name\": \"Indianapolis North\",\n            \"city\": \"Indianapolis\",\n            \"state\": \"IN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1010\",\n            \"on_hand\": 7,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          }\n        ]\n      },\n      \"pulse\": {\n        \"sku\": \"RN-1010\",\n        \"pulse_score\": 32.3,\n        \"current_week_units\": 35,\n        \"previous_week_units\": 30,\n        \"week_over_week_growth\": 16.7,\n        \"on_hand_units\": 60,\n        \"avg_on_hand_per_store\": 10,\n        \"flags\": [],\n        \"recommended_action\": \"MONITOR\",\n        \"reasons\": [],\n        \"nearby_same_day_store\": null\n      },\n      \"daily_sales\": [\n        {\n          \"date\": \"2026-03-26\",\n          \"units\": 4\n        },\n        {\n          \"date\": \"2026-03-27\",\n          \"units\": 5\n        },\n        {\n          \"date\": \"2026-03-28\",\n          \"units\": 5\n        },\n        {\n          \"date\": \"2026-03-29\",\n          \"units\": 5\n        },\n        {\n          \"date\": \"2026-03-30\",\n          \"units\": 5\n        },\n        {\n          \"date\": \"2026-03-31\",\n          \"units\": 5\n        },\n        {\n          \"date\": \"2026-04-01\",\n          \"units\": 6\n        }\n      ]\n    },\n    {\n      \"sku\": \"RN-1002\",\n      \"name\": \"Patchwork Crew Sweater\",\n      \"category\": \"Knitwear\",\n      \"style\": \"Eclectic Grandpa\",\n      \"price\": 69.99,\n      \"color\": \"Multi\",\n      \"attributes\": [\n        \"patchwork\",\n        \"soft-hand\",\n        \"statement\"\n      ],\n      \"gender\": \"Unisex\",\n      \"season\": \"Spring\",\n      \"inventory\": {\n        \"on_hand\": 46,\n        \"in_transit\": 0,\n        \"stores\": [\n          {\n            \"store_id\": \"MSP01\",\n            \"name\": \"Minneapolis Uptown\",\n            \"city\": \"Minneapolis\",\n            \"state\": \"MN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1002\",\n            \"on_hand\": 9,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          },\n          {\n            \"store_id\": \"MSP02\",\n            \"name\": \"St. Paul Grand\",\n            \"city\": \"St. Paul\",\n            \"state\": \"MN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1002\",\n            \"on_hand\": 8,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"CHI01\",\n            \"name\": \"Chicago Loop\",\n            \"city\": \"Chicago\",\n            \"state\": \"IL\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1002\",\n            \"on_hand\": 11,\n            \"in_transit\": 0,\n            \"reserved\": 1,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"STL01\",\n            \"name\": \"St. Louis Central West End\",\n            \"city\": \"St. Louis\",\n            \"state\": \"MO\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1002\",\n            \"on_hand\": 7,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"KCY01\",\n            \"name\": \"Kansas City Plaza\",\n            \"city\": \"Kansas City\",\n            \"state\": \"MO\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1002\",\n            \"on_hand\": 6,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          },\n          {\n            \"store_id\": \"IND01\",\n            \"name\": \"Indianapolis North\",\n            \"city\": \"Indianapolis\",\n            \"state\": \"IN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1002\",\n            \"on_hand\": 5,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          }\n        ]\n      },\n      \"pulse\": {\n        \"sku\": \"RN-1002\",\n        \"pulse_score\": 30.9,\n        \"current_week_units\": 41,\n        \"previous_week_units\": 36,\n        \"week_over_week_growth\": 13.9,\n        \"on_hand_units\": 46,\n        \"avg_on_hand_per_store\": 7.7,\n        \"flags\": [],\n        \"recommended_action\": \"MONITOR\",\n        \"reasons\": [],\n        \"nearby_same_day_store\": null\n      },\n      \"daily_sales\": [\n        {\n          \"date\": \"2026-03-26\",\n          \"units\": 5\n        },\n        {\n          \"date\": \"2026-03-27\",\n          \"units\": 5\n        },\n        {\n          \"date\": \"2026-03-28\",\n          \"units\": 6\n        },\n        {\n          \"date\": \"2026-03-29\",\n          \"units\": 6\n        },\n        {\n          \"date\": \"2026-03-30\",\n          \"units\": 6\n        },\n        {\n          \"date\": \"2026-03-31\",\n          \"units\": 6\n        },\n        {\n          \"date\": \"2026-04-01\",\n          \"units\": 7\n        }\n      ]\n    },\n    {\n      \"sku\": \"RN-1006\",\n      \"name\": \"Quiet Luxe Tailored Trouser\",\n      \"category\": \"Bottoms\",\n      \"style\": \"Quiet Luxury\",\n      \"price\": 94.99,\n      \"color\": \"Camel\",\n      \"attributes\": [\n        \"tailored\",\n        \"premium\",\n        \"neutral\"\n      ],\n      \"gender\": \"Women\",\n      \"season\": \"All\",\n      \"inventory\": {\n        \"on_hand\": 53,\n        \"in_transit\": 0,\n        \"stores\": [\n          {\n            \"store_id\": \"MSP01\",\n            \"name\": \"Minneapolis Uptown\",\n            \"city\": \"Minneapolis\",\n            \"state\": \"MN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1006\",\n            \"on_hand\": 7,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          },\n          {\n            \"store_id\": \"MSP02\",\n            \"name\": \"St. Paul Grand\",\n            \"city\": \"St. Paul\",\n            \"state\": \"MN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1006\",\n            \"on_hand\": 9,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"CHI01\",\n            \"name\": \"Chicago Loop\",\n            \"city\": \"Chicago\",\n            \"state\": \"IL\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1006\",\n            \"on_hand\": 10,\n            \"in_transit\": 0,\n            \"reserved\": 1,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"STL01\",\n            \"name\": \"St. Louis Central West End\",\n            \"city\": \"St. Louis\",\n            \"state\": \"MO\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1006\",\n            \"on_hand\": 12,\n            \"in_transit\": 0,\n            \"reserved\": 1,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"KCY01\",\n            \"name\": \"Kansas City Plaza\",\n            \"city\": \"Kansas City\",\n            \"state\": \"MO\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1006\",\n            \"on_hand\": 8,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          },\n          {\n            \"store_id\": \"IND01\",\n            \"name\": \"Indianapolis North\",\n            \"city\": \"Indianapolis\",\n            \"state\": \"IN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1006\",\n            \"on_hand\": 7,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          }\n        ]\n      },\n      \"pulse\": {\n        \"sku\": \"RN-1006\",\n        \"pulse_score\": 30.5,\n        \"current_week_units\": 37,\n        \"previous_week_units\": 32,\n        \"week_over_week_growth\": 15.6,\n        \"on_hand_units\": 53,\n        \"avg_on_hand_per_store\": 8.8,\n        \"flags\": [],\n        \"recommended_action\": \"MONITOR\",\n        \"reasons\": [],\n        \"nearby_same_day_store\": null\n      },\n      \"daily_sales\": [\n        {\n          \"date\": \"2026-03-26\",\n          \"units\": 5\n        },\n        {\n          \"date\": \"2026-03-27\",\n          \"units\": 5\n        },\n        {\n          \"date\": \"2026-03-28\",\n          \"units\": 5\n        },\n        {\n          \"date\": \"2026-03-29\",\n          \"units\": 5\n        },\n        {\n          \"date\": \"2026-03-30\",\n          \"units\": 5\n        },\n        {\n          \"date\": \"2026-03-31\",\n          \"units\": 6\n        },\n        {\n          \"date\": \"2026-04-01\",\n          \"units\": 6\n        }\n      ]\n    },\n    {\n      \"sku\": \"RN-1007\",\n      \"name\": \"Soft Touch Polo Sweater\",\n      \"category\": \"Knitwear\",\n      \"style\": \"Quiet Prep\",\n      \"price\": 64.99,\n      \"color\": \"Navy\",\n      \"attributes\": [\n        \"prep\",\n        \"soft\",\n        \"polished\"\n      ],\n      \"gender\": \"Men\",\n      \"season\": \"Spring\",\n      \"inventory\": {\n        \"on_hand\": 54,\n        \"in_transit\": 0,\n        \"stores\": [\n          {\n            \"store_id\": \"MSP01\",\n            \"name\": \"Minneapolis Uptown\",\n            \"city\": \"Minneapolis\",\n            \"state\": \"MN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1007\",\n            \"on_hand\": 13,\n            \"in_transit\": 0,\n            \"reserved\": 1,\n            \"same_day_eligible\": false\n          },\n          {\n            \"store_id\": \"MSP02\",\n            \"name\": \"St. Paul Grand\",\n            \"city\": \"St. Paul\",\n            \"state\": \"MN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1007\",\n            \"on_hand\": 11,\n            \"in_transit\": 0,\n            \"reserved\": 1,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"CHI01\",\n            \"name\": \"Chicago Loop\",\n            \"city\": \"Chicago\",\n            \"state\": \"IL\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1007\",\n            \"on_hand\": 9,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"STL01\",\n            \"name\": \"St. Louis Central West End\",\n            \"city\": \"St. Louis\",\n            \"state\": \"MO\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1007\",\n            \"on_hand\": 6,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"KCY01\",\n            \"name\": \"Kansas City Plaza\",\n            \"city\": \"Kansas City\",\n            \"state\": \"MO\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1007\",\n            \"on_hand\": 7,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          },\n          {\n            \"store_id\": \"IND01\",\n            \"name\": \"Indianapolis North\",\n            \"city\": \"Indianapolis\",\n            \"state\": \"IN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1007\",\n            \"on_hand\": 8,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          }\n        ]\n      },\n      \"pulse\": {\n        \"sku\": \"RN-1007\",\n        \"pulse_score\": 30.5,\n        \"current_week_units\": 33,\n        \"previous_week_units\": 29,\n        \"week_over_week_growth\": 13.8,\n        \"on_hand_units\": 54,\n        \"avg_on_hand_per_store\": 9,\n        \"flags\": [],\n        \"recommended_action\": \"MONITOR\",\n        \"reasons\": [],\n        \"nearby_same_day_store\": null\n      },\n      \"daily_sales\": [\n        {\n          \"date\": \"2026-03-26\",\n          \"units\": 4\n        },\n        {\n          \"date\": \"2026-03-27\",\n          \"units\": 4\n        },\n        {\n          \"date\": \"2026-03-28\",\n          \"units\": 5\n        },\n        {\n          \"date\": \"2026-03-29\",\n          \"units\": 5\n        },\n        {\n          \"date\": \"2026-03-30\",\n          \"units\": 5\n        },\n        {\n          \"date\": \"2026-03-31\",\n          \"units\": 5\n        },\n        {\n          \"date\": \"2026-04-01\",\n          \"units\": 5\n        }\n      ]\n    },\n    {\n      \"sku\": \"RN-1009\",\n      \"name\": \"Pleated Mini Skirt\",\n      \"category\": \"Bottoms\",\n      \"style\": \"Quiet Prep\",\n      \"price\": 54.99,\n      \"color\": \"Stone\",\n      \"attributes\": [\n        \"pleated\",\n        \"prep\",\n        \"mini\"\n      ],\n      \"gender\": \"Women\",\n      \"season\": \"Spring\",\n      \"inventory\": {\n        \"on_hand\": 51,\n        \"in_transit\": 0,\n        \"stores\": [\n          {\n            \"store_id\": \"MSP01\",\n            \"name\": \"Minneapolis Uptown\",\n            \"city\": \"Minneapolis\",\n            \"state\": \"MN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1009\",\n            \"on_hand\": 11,\n            \"in_transit\": 0,\n            \"reserved\": 1,\n            \"same_day_eligible\": false\n          },\n          {\n            \"store_id\": \"MSP02\",\n            \"name\": \"St. Paul Grand\",\n            \"city\": \"St. Paul\",\n            \"state\": \"MN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1009\",\n            \"on_hand\": 10,\n            \"in_transit\": 0,\n            \"reserved\": 1,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"CHI01\",\n            \"name\": \"Chicago Loop\",\n            \"city\": \"Chicago\",\n            \"state\": \"IL\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1009\",\n            \"on_hand\": 9,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"STL01\",\n            \"name\": \"St. Louis Central West End\",\n            \"city\": \"St. Louis\",\n            \"state\": \"MO\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1009\",\n            \"on_hand\": 8,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"KCY01\",\n            \"name\": \"Kansas City Plaza\",\n            \"city\": \"Kansas City\",\n            \"state\": \"MO\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1009\",\n            \"on_hand\": 7,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          },\n          {\n            \"store_id\": \"IND01\",\n            \"name\": \"Indianapolis North\",\n            \"city\": \"Indianapolis\",\n            \"state\": \"IN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1009\",\n            \"on_hand\": 6,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          }\n        ]\n      },\n      \"pulse\": {\n        \"sku\": \"RN-1009\",\n        \"pulse_score\": 10.7,\n        \"current_week_units\": 29,\n        \"previous_week_units\": 31,\n        \"week_over_week_growth\": -6.5,\n        \"on_hand_units\": 51,\n        \"avg_on_hand_per_store\": 8.5,\n        \"flags\": [],\n        \"recommended_action\": \"MONITOR\",\n        \"reasons\": [],\n        \"nearby_same_day_store\": null\n      },\n      \"daily_sales\": [\n        {\n          \"date\": \"2026-03-26\",\n          \"units\": 4\n        },\n        {\n          \"date\": \"2026-03-27\",\n          \"units\": 4\n        },\n        {\n          \"date\": \"2026-03-28\",\n          \"units\": 4\n        },\n        {\n          \"date\": \"2026-03-29\",\n          \"units\": 4\n        },\n        {\n          \"date\": \"2026-03-30\",\n          \"units\": 4\n        },\n        {\n          \"date\": \"2026-03-31\",\n          \"units\": 4\n        },\n        {\n          \"date\": \"2026-04-01\",\n          \"units\": 5\n        }\n      ]\n    },\n    {\n      \"sku\": \"RN-1005\",\n      \"name\": \"Boxy Cropped Tee\",\n      \"category\": \"Tops\",\n      \"style\": \"Indie Sleaze 2.0\",\n      \"price\": 29.99,\n      \"color\": \"Black\",\n      \"attributes\": [\n        \"boxy\",\n        \"cropped\",\n        \"washed\"\n      ],\n      \"gender\": \"Women\",\n      \"season\": \"All\",\n      \"inventory\": {\n        \"on_hand\": 70,\n        \"in_transit\": 0,\n        \"stores\": [\n          {\n            \"store_id\": \"MSP01\",\n            \"name\": \"Minneapolis Uptown\",\n            \"city\": \"Minneapolis\",\n            \"state\": \"MN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1005\",\n            \"on_hand\": 15,\n            \"in_transit\": 0,\n            \"reserved\": 1,\n            \"same_day_eligible\": false\n          },\n          {\n            \"store_id\": \"MSP02\",\n            \"name\": \"St. Paul Grand\",\n            \"city\": \"St. Paul\",\n            \"state\": \"MN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1005\",\n            \"on_hand\": 12,\n            \"in_transit\": 0,\n            \"reserved\": 1,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"CHI01\",\n            \"name\": \"Chicago Loop\",\n            \"city\": \"Chicago\",\n            \"state\": \"IL\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1005\",\n            \"on_hand\": 14,\n            \"in_transit\": 0,\n            \"reserved\": 1,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"STL01\",\n            \"name\": \"St. Louis Central West End\",\n            \"city\": \"St. Louis\",\n            \"state\": \"MO\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1005\",\n            \"on_hand\": 10,\n            \"in_transit\": 0,\n            \"reserved\": 1,\n            \"same_day_eligible\": true\n          },\n          {\n            \"store_id\": \"KCY01\",\n            \"name\": \"Kansas City Plaza\",\n            \"city\": \"Kansas City\",\n            \"state\": \"MO\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1005\",\n            \"on_hand\": 11,\n            \"in_transit\": 0,\n            \"reserved\": 1,\n            \"same_day_eligible\": false\n          },\n          {\n            \"store_id\": \"IND01\",\n            \"name\": \"Indianapolis North\",\n            \"city\": \"Indianapolis\",\n            \"state\": \"IN\",\n            \"region\": \"Midwest\",\n            \"sku\": \"RN-1005\",\n            \"on_hand\": 8,\n            \"in_transit\": 0,\n            \"reserved\": 0,\n            \"same_day_eligible\": false\n          }\n        ]\n      },\n      \"pulse\": {\n        \"sku\": \"RN-1005\",\n        \"pulse_score\": 9.1,\n        \"current_week_units\": 39,\n        \"previous_week_units\": 44,\n        \"week_over_week_growth\": -11.4,\n        \"on_hand_units\": 70,\n        \"avg_on_hand_per_store\": 11.7,\n        \"flags\": [],\n        \"recommended_action\": \"MONITOR\",\n        \"reasons\": [],\n        \"nearby_same_day_store\": null\n      },\n      \"daily_sales\": [\n        {\n          \"date\": \"2026-03-26\",\n          \"units\": 5\n        },\n        {\n          \"date\": \"2026-03-27\",\n          \"units\": 5\n        },\n        {\n          \"date\": \"2026-03-28\",\n          \"units\": 5\n        },\n        {\n          \"date\": \"2026-03-29\",\n          \"units\": 5\n        },\n        {\n          \"date\": \"2026-03-30\",\n          \"units\": 6\n        },\n        {\n          \"date\": \"2026-03-31\",\n          \"units\": 6\n        },\n        {\n          \"date\": \"2026-04-01\",\n          \"units\": 7\n        }\n      ]\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "GET /v1/catalog/item-detail \u2013 RN-1011",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "catalog",
+                "item-detail"
+              ],
+              "query": [
+                {
+                  "key": "sku",
+                  "value": "RN-1011"
+                }
+              ],
+              "raw": "{{baseUrl}}/v1/catalog/item-detail?sku=RN-1011"
+            }
+          },
+          "response": [
+            {
+              "name": "GET /v1/catalog/item-detail \u2013 RN-1011",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "catalog",
+                    "item-detail"
+                  ],
+                  "query": [
+                    {
+                      "key": "sku",
+                      "value": "RN-1011"
+                    }
+                  ],
+                  "raw": "{{baseUrl}}/v1/catalog/item-detail?sku=RN-1011"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "body": "{\n  \"sku\": \"RN-1011\",\n  \"name\": \"Chunky Wool Grandpa Cardigan\",\n  \"category\": \"Knitwear\",\n  \"style\": \"Eclectic Grandpa\",\n  \"price\": 89.99,\n  \"color\": \"Heather Brown\",\n  \"attributes\": [\n    \"chunky\",\n    \"oversized\",\n    \"heritage\"\n  ],\n  \"gender\": \"Unisex\",\n  \"season\": \"Spring\",\n  \"inventory\": {\n    \"on_hand\": 17,\n    \"in_transit\": 2,\n    \"stores\": [\n      {\n        \"store_id\": \"MSP01\",\n        \"name\": \"Minneapolis Uptown\",\n        \"city\": \"Minneapolis\",\n        \"state\": \"MN\",\n        \"region\": \"Midwest\",\n        \"sku\": \"RN-1011\",\n        \"on_hand\": 2,\n        \"in_transit\": 0,\n        \"reserved\": 0,\n        \"same_day_eligible\": false\n      },\n      {\n        \"store_id\": \"MSP02\",\n        \"name\": \"St. Paul Grand\",\n        \"city\": \"St. Paul\",\n        \"state\": \"MN\",\n        \"region\": \"Midwest\",\n        \"sku\": \"RN-1011\",\n        \"on_hand\": 1,\n        \"in_transit\": 0,\n        \"reserved\": 0,\n        \"same_day_eligible\": true\n      },\n      {\n        \"store_id\": \"CHI01\",\n        \"name\": \"Chicago Loop\",\n        \"city\": \"Chicago\",\n        \"state\": \"IL\",\n        \"region\": \"Midwest\",\n        \"sku\": \"RN-1011\",\n        \"on_hand\": 5,\n        \"in_transit\": 2,\n        \"reserved\": 0,\n        \"same_day_eligible\": true\n      },\n      {\n        \"store_id\": \"STL01\",\n        \"name\": \"St. Louis Central West End\",\n        \"city\": \"St. Louis\",\n        \"state\": \"MO\",\n        \"region\": \"Midwest\",\n        \"sku\": \"RN-1011\",\n        \"on_hand\": 4,\n        \"in_transit\": 0,\n        \"reserved\": 0,\n        \"same_day_eligible\": true\n      },\n      {\n        \"store_id\": \"KCY01\",\n        \"name\": \"Kansas City Plaza\",\n        \"city\": \"Kansas City\",\n        \"state\": \"MO\",\n        \"region\": \"Midwest\",\n        \"sku\": \"RN-1011\",\n        \"on_hand\": 3,\n        \"in_transit\": 0,\n        \"reserved\": 0,\n        \"same_day_eligible\": false\n      },\n      {\n        \"store_id\": \"IND01\",\n        \"name\": \"Indianapolis North\",\n        \"city\": \"Indianapolis\",\n        \"state\": \"IN\",\n        \"region\": \"Midwest\",\n        \"sku\": \"RN-1011\",\n        \"on_hand\": 2,\n        \"in_transit\": 0,\n        \"reserved\": 0,\n        \"same_day_eligible\": false\n      }\n    ]\n  },\n  \"pulse\": {\n    \"sku\": \"RN-1011\",\n    \"pulse_score\": 66.5,\n    \"current_week_units\": 36,\n    \"previous_week_units\": 26,\n    \"week_over_week_growth\": 38.5,\n    \"on_hand_units\": 17,\n    \"avg_on_hand_per_store\": 2.8,\n    \"flags\": [\n      \"LOW_STOCK\",\n      \"TRENDING\"\n    ],\n    \"recommended_action\": \"REORDER\",\n    \"reasons\": [\n      \"Demand is up 38.5% week over week.\",\n      \"Regional stock is running lean.\"\n    ],\n    \"nearby_same_day_store\": null\n  },\n  \"daily_sales\": [\n    {\n      \"date\": \"2026-03-26\",\n      \"units\": 4\n    },\n    {\n      \"date\": \"2026-03-27\",\n      \"units\": 5\n    },\n    {\n      \"date\": \"2026-03-28\",\n      \"units\": 5\n    },\n    {\n      \"date\": \"2026-03-29\",\n      \"units\": 5\n    },\n    {\n      \"date\": \"2026-03-30\",\n      \"units\": 5\n    },\n    {\n      \"date\": \"2026-03-31\",\n      \"units\": 6\n    },\n    {\n      \"date\": \"2026-04-01\",\n      \"units\": 6\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "GET /v1/catalog/item-detail \u2013 RN-1012",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "catalog",
+                "item-detail"
+              ],
+              "query": [
+                {
+                  "key": "sku",
+                  "value": "RN-1012"
+                }
+              ],
+              "raw": "{{baseUrl}}/v1/catalog/item-detail?sku=RN-1012"
+            }
+          },
+          "response": [
+            {
+              "name": "GET /v1/catalog/item-detail \u2013 RN-1012",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "catalog",
+                    "item-detail"
+                  ],
+                  "query": [
+                    {
+                      "key": "sku",
+                      "value": "RN-1012"
+                    }
+                  ],
+                  "raw": "{{baseUrl}}/v1/catalog/item-detail?sku=RN-1012"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "body": "{\n  \"sku\": \"RN-1012\",\n  \"name\": \"Relaxed Fit Carpenter Denim\",\n  \"category\": \"Denim\",\n  \"style\": \"Workwear Revival\",\n  \"price\": 74.99,\n  \"color\": \"Vintage Blue\",\n  \"attributes\": [\n    \"relaxed\",\n    \"utility\",\n    \"durable\"\n  ],\n  \"gender\": \"Men\",\n  \"season\": \"Spring\",\n  \"inventory\": {\n    \"on_hand\": 61,\n    \"in_transit\": 4,\n    \"stores\": [\n      {\n        \"store_id\": \"MSP01\",\n        \"name\": \"Minneapolis Uptown\",\n        \"city\": \"Minneapolis\",\n        \"state\": \"MN\",\n        \"region\": \"Midwest\",\n        \"sku\": \"RN-1012\",\n        \"on_hand\": 3,\n        \"in_transit\": 0,\n        \"reserved\": 0,\n        \"same_day_eligible\": false\n      },\n      {\n        \"store_id\": \"MSP02\",\n        \"name\": \"St. Paul Grand\",\n        \"city\": \"St. Paul\",\n        \"state\": \"MN\",\n        \"region\": \"Midwest\",\n        \"sku\": \"RN-1012\",\n        \"on_hand\": 2,\n        \"in_transit\": 0,\n        \"reserved\": 0,\n        \"same_day_eligible\": true\n      },\n      {\n        \"store_id\": \"CHI01\",\n        \"name\": \"Chicago Loop\",\n        \"city\": \"Chicago\",\n        \"state\": \"IL\",\n        \"region\": \"Midwest\",\n        \"sku\": \"RN-1012\",\n        \"on_hand\": 7,\n        \"in_transit\": 0,\n        \"reserved\": 0,\n        \"same_day_eligible\": true\n      },\n      {\n        \"store_id\": \"STL01\",\n        \"name\": \"St. Louis Central West End\",\n        \"city\": \"St. Louis\",\n        \"state\": \"MO\",\n        \"region\": \"Midwest\",\n        \"sku\": \"RN-1012\",\n        \"on_hand\": 28,\n        \"in_transit\": 4,\n        \"reserved\": 2,\n        \"same_day_eligible\": true\n      },\n      {\n        \"store_id\": \"KCY01\",\n        \"name\": \"Kansas City Plaza\",\n        \"city\": \"Kansas City\",\n        \"state\": \"MO\",\n        \"region\": \"Midwest\",\n        \"sku\": \"RN-1012\",\n        \"on_hand\": 16,\n        \"in_transit\": 0,\n        \"reserved\": 1,\n        \"same_day_eligible\": false\n      },\n      {\n        \"store_id\": \"IND01\",\n        \"name\": \"Indianapolis North\",\n        \"city\": \"Indianapolis\",\n        \"state\": \"IN\",\n        \"region\": \"Midwest\",\n        \"sku\": \"RN-1012\",\n        \"on_hand\": 5,\n        \"in_transit\": 0,\n        \"reserved\": 0,\n        \"same_day_eligible\": false\n      }\n    ]\n  },\n  \"pulse\": {\n    \"sku\": \"RN-1012\",\n    \"pulse_score\": 52.3,\n    \"current_week_units\": 50,\n    \"previous_week_units\": 41,\n    \"week_over_week_growth\": 22,\n    \"on_hand_units\": 61,\n    \"avg_on_hand_per_store\": 10.2,\n    \"flags\": [\n      \"TRANSFER_OPPORTUNITY\",\n      \"TRENDING\"\n    ],\n    \"recommended_action\": \"TRANSFER\",\n    \"reasons\": [\n      \"Demand is up 22% week over week.\",\n      \"Store inventory is unevenly distributed.\"\n    ],\n    \"nearby_same_day_store\": null\n  },\n  \"daily_sales\": [\n    {\n      \"date\": \"2026-03-26\",\n      \"units\": 6\n    },\n    {\n      \"date\": \"2026-03-27\",\n      \"units\": 7\n    },\n    {\n      \"date\": \"2026-03-28\",\n      \"units\": 7\n    },\n    {\n      \"date\": \"2026-03-29\",\n      \"units\": 7\n    },\n    {\n      \"date\": \"2026-03-30\",\n      \"units\": 7\n    },\n    {\n      \"date\": \"2026-03-31\",\n      \"units\": 8\n    },\n    {\n      \"date\": \"2026-04-01\",\n      \"units\": 8\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "GET /v1/catalog/item-detail \u2013 RN-1013",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "catalog",
+                "item-detail"
+              ],
+              "query": [
+                {
+                  "key": "sku",
+                  "value": "RN-1013"
+                }
+              ],
+              "raw": "{{baseUrl}}/v1/catalog/item-detail?sku=RN-1013"
+            }
+          },
+          "response": [
+            {
+              "name": "GET /v1/catalog/item-detail \u2013 RN-1013",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "catalog",
+                    "item-detail"
+                  ],
+                  "query": [
+                    {
+                      "key": "sku",
+                      "value": "RN-1013"
+                    }
+                  ],
+                  "raw": "{{baseUrl}}/v1/catalog/item-detail?sku=RN-1013"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "body": "{\n  \"sku\": \"RN-1013\",\n  \"name\": \"Minimalist Tailored Blazer\",\n  \"category\": \"Outerwear\",\n  \"style\": \"Quiet Luxury\",\n  \"price\": 129.99,\n  \"color\": \"Soft Black\",\n  \"attributes\": [\n    \"tailored\",\n    \"neutral\",\n    \"premium\"\n  ],\n  \"gender\": \"Women\",\n  \"season\": \"All\",\n  \"inventory\": {\n    \"on_hand\": 27,\n    \"in_transit\": 1,\n    \"stores\": [\n      {\n        \"store_id\": \"MSP01\",\n        \"name\": \"Minneapolis Uptown\",\n        \"city\": \"Minneapolis\",\n        \"state\": \"MN\",\n        \"region\": \"Midwest\",\n        \"sku\": \"RN-1013\",\n        \"on_hand\": 0,\n        \"in_transit\": 0,\n        \"reserved\": 0,\n        \"same_day_eligible\": false\n      },\n      {\n        \"store_id\": \"MSP02\",\n        \"name\": \"St. Paul Grand\",\n        \"city\": \"St. Paul\",\n        \"state\": \"MN\",\n        \"region\": \"Midwest\",\n        \"sku\": \"RN-1013\",\n        \"on_hand\": 4,\n        \"in_transit\": 1,\n        \"reserved\": 0,\n        \"same_day_eligible\": true\n      },\n      {\n        \"store_id\": \"CHI01\",\n        \"name\": \"Chicago Loop\",\n        \"city\": \"Chicago\",\n        \"state\": \"IL\",\n        \"region\": \"Midwest\",\n        \"sku\": \"RN-1013\",\n        \"on_hand\": 12,\n        \"in_transit\": 0,\n        \"reserved\": 1,\n        \"same_day_eligible\": true\n      },\n      {\n        \"store_id\": \"STL01\",\n        \"name\": \"St. Louis Central West End\",\n        \"city\": \"St. Louis\",\n        \"state\": \"MO\",\n        \"region\": \"Midwest\",\n        \"sku\": \"RN-1013\",\n        \"on_hand\": 6,\n        \"in_transit\": 0,\n        \"reserved\": 0,\n        \"same_day_eligible\": true\n      },\n      {\n        \"store_id\": \"KCY01\",\n        \"name\": \"Kansas City Plaza\",\n        \"city\": \"Kansas City\",\n        \"state\": \"MO\",\n        \"region\": \"Midwest\",\n        \"sku\": \"RN-1013\",\n        \"on_hand\": 3,\n        \"in_transit\": 0,\n        \"reserved\": 0,\n        \"same_day_eligible\": false\n      },\n      {\n        \"store_id\": \"IND01\",\n        \"name\": \"Indianapolis North\",\n        \"city\": \"Indianapolis\",\n        \"state\": \"IN\",\n        \"region\": \"Midwest\",\n        \"sku\": \"RN-1013\",\n        \"on_hand\": 2,\n        \"in_transit\": 0,\n        \"reserved\": 0,\n        \"same_day_eligible\": false\n      }\n    ]\n  },\n  \"pulse\": {\n    \"sku\": \"RN-1013\",\n    \"pulse_score\": 53,\n    \"current_week_units\": 23,\n    \"previous_week_units\": 20,\n    \"week_over_week_growth\": 15,\n    \"on_hand_units\": 27,\n    \"avg_on_hand_per_store\": 4.5,\n    \"flags\": [\n      \"SAME_DAY_ELIGIBLE\"\n    ],\n    \"recommended_action\": \"SAME_DAY_FULFILLMENT\",\n    \"reasons\": [\n      \"Nearby stores can save the sale through same-day fulfillment.\"\n    ],\n    \"nearby_same_day_store\": {\n      \"store_id\": \"CHI01\",\n      \"name\": \"Chicago Loop\",\n      \"on_hand\": 12\n    }\n  },\n  \"daily_sales\": [\n    {\n      \"date\": \"2026-03-26\",\n      \"units\": 3\n    },\n    {\n      \"date\": \"2026-03-27\",\n      \"units\": 3\n    },\n    {\n      \"date\": \"2026-03-28\",\n      \"units\": 3\n    },\n    {\n      \"date\": \"2026-03-29\",\n      \"units\": 3\n    },\n    {\n      \"date\": \"2026-03-30\",\n      \"units\": 3\n    },\n    {\n      \"date\": \"2026-03-31\",\n      \"units\": 4\n    },\n    {\n      \"date\": \"2026-04-01\",\n      \"units\": 4\n    }\n  ]\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Inventory",
+      "item": [
+        {
+          "name": "GET /v1/inventory/store \u2013 MSP01",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "inventory",
+                "store"
+              ],
+              "query": [
+                {
+                  "key": "store_id",
+                  "value": "MSP01"
+                }
+              ],
+              "raw": "{{baseUrl}}/v1/inventory/store?store_id=MSP01"
+            }
+          },
+          "response": [
+            {
+              "name": "GET /v1/inventory/store \u2013 MSP01",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "inventory",
+                    "store"
+                  ],
+                  "query": [
+                    {
+                      "key": "store_id",
+                      "value": "MSP01"
+                    }
+                  ],
+                  "raw": "{{baseUrl}}/v1/inventory/store?store_id=MSP01"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "body": "{\n  \"store\": {\n    \"store_id\": \"MSP01\",\n    \"name\": \"Minneapolis Uptown\",\n    \"city\": \"Minneapolis\",\n    \"state\": \"MN\",\n    \"region\": \"Midwest\"\n  },\n  \"inventory\": [\n    {\n      \"sku\": \"RN-1001\",\n      \"name\": \"Heritage Cable Cardigan\",\n      \"category\": \"Knitwear\",\n      \"style\": \"Eclectic Grandpa\",\n      \"on_hand\": 14,\n      \"in_transit\": 0,\n      \"pulse_score\": 46\n    },\n    {\n      \"sku\": \"RN-1002\",\n      \"name\": \"Patchwork Crew Sweater\",\n      \"category\": \"Knitwear\",\n      \"style\": \"Eclectic Grandpa\",\n      \"on_hand\": 9,\n      \"in_transit\": 0,\n      \"pulse_score\": 30.9\n    },\n    {\n      \"sku\": \"RN-1003\",\n      \"name\": \"Relaxed Utility Chore Jacket\",\n      \"category\": \"Outerwear\",\n      \"style\": \"Utility Heritage\",\n      \"on_hand\": 12,\n      \"in_transit\": 0,\n      \"pulse_score\": 48.3\n    },\n    {\n      \"sku\": \"RN-1004\",\n      \"name\": \"Wide-Leg Carpenter Jean\",\n      \"category\": \"Denim\",\n      \"style\": \"Workwear Revival\",\n      \"on_hand\": 8,\n      \"in_transit\": 0,\n      \"pulse_score\": 52\n    },\n    {\n      \"sku\": \"RN-1005\",\n      \"name\": \"Boxy Cropped Tee\",\n      \"category\": \"Tops\",\n      \"style\": \"Indie Sleaze 2.0\",\n      \"on_hand\": 15,\n      \"in_transit\": 0,\n      \"pulse_score\": 9.1\n    },\n    {\n      \"sku\": \"RN-1006\",\n      \"name\": \"Quiet Luxe Tailored Trouser\",\n      \"category\": \"Bottoms\",\n      \"style\": \"Quiet Luxury\",\n      \"on_hand\": 7,\n      \"in_transit\": 0,\n      \"pulse_score\": 30.5\n    },\n    {\n      \"sku\": \"RN-1007\",\n      \"name\": \"Soft Touch Polo Sweater\",\n      \"category\": \"Knitwear\",\n      \"style\": \"Quiet Prep\",\n      \"on_hand\": 13,\n      \"in_transit\": 0,\n      \"pulse_score\": 30.5\n    },\n    {\n      \"sku\": \"RN-1008\",\n      \"name\": \"Oversized Barn Jacket\",\n      \"category\": \"Outerwear\",\n      \"style\": \"Workwear Revival\",\n      \"on_hand\": 9,\n      \"in_transit\": 0,\n      \"pulse_score\": 54.1\n    },\n    {\n      \"sku\": \"RN-1009\",\n      \"name\": \"Pleated Mini Skirt\",\n      \"category\": \"Bottoms\",\n      \"style\": \"Quiet Prep\",\n      \"on_hand\": 11,\n      \"in_transit\": 0,\n      \"pulse_score\": 10.7\n    },\n    {\n      \"sku\": \"RN-1010\",\n      \"name\": \"Washed Mesh Layer Top\",\n      \"category\": \"Tops\",\n      \"style\": \"Indie Sleaze 2.0\",\n      \"on_hand\": 12,\n      \"in_transit\": 0,\n      \"pulse_score\": 32.3\n    },\n    {\n      \"sku\": \"RN-1011\",\n      \"name\": \"Chunky Wool Grandpa Cardigan\",\n      \"category\": \"Knitwear\",\n      \"style\": \"Eclectic Grandpa\",\n      \"on_hand\": 2,\n      \"in_transit\": 0,\n      \"pulse_score\": 66.5\n    },\n    {\n      \"sku\": \"RN-1012\",\n      \"name\": \"Relaxed Fit Carpenter Denim\",\n      \"category\": \"Denim\",\n      \"style\": \"Workwear Revival\",\n      \"on_hand\": 3,\n      \"in_transit\": 0,\n      \"pulse_score\": 52.3\n    },\n    {\n      \"sku\": \"RN-1013\",\n      \"name\": \"Minimalist Tailored Blazer\",\n      \"category\": \"Outerwear\",\n      \"style\": \"Quiet Luxury\",\n      \"on_hand\": 0,\n      \"in_transit\": 0,\n      \"pulse_score\": 53\n    }\n  ]\n}"
+            }
+          ]
+        },
+        {
+          "name": "GET /v1/inventory/snapshot",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "inventory",
+                "snapshot"
+              ],
+              "query": [
+                {
+                  "key": "region",
+                  "value": "Midwest"
+                }
+              ],
+              "raw": "{{baseUrl}}/v1/inventory/snapshot?region=Midwest"
+            }
+          },
+          "response": [
+            {
+              "name": "GET /v1/inventory/snapshot",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "inventory",
+                    "snapshot"
+                  ],
+                  "query": [
+                    {
+                      "key": "region",
+                      "value": "Midwest"
+                    }
+                  ],
+                  "raw": "{{baseUrl}}/v1/inventory/snapshot?region=Midwest"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "body": "{\n  \"region\": \"Midwest\",\n  \"snapshot\": [\n    {\n      \"sku\": \"RN-1001\",\n      \"name\": \"Heritage Cable Cardigan\",\n      \"style\": \"Eclectic Grandpa\",\n      \"region\": \"Midwest\",\n      \"on_hand_units\": 64,\n      \"in_transit_units\": 0,\n      \"stores\": [\n        {\n          \"store_id\": \"MSP01\",\n          \"city\": \"Minneapolis\",\n          \"on_hand\": 14,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        },\n        {\n          \"store_id\": \"MSP02\",\n          \"city\": \"St. Paul\",\n          \"on_hand\": 10,\n          \"in_transit\": 0,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"CHI01\",\n          \"city\": \"Chicago\",\n          \"on_hand\": 16,\n          \"in_transit\": 0,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"STL01\",\n          \"city\": \"St. Louis\",\n          \"on_hand\": 9,\n          \"in_transit\": 0,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"KCY01\",\n          \"city\": \"Kansas City\",\n          \"on_hand\": 8,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        },\n        {\n          \"store_id\": \"IND01\",\n          \"city\": \"Indianapolis\",\n          \"on_hand\": 7,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        }\n      ]\n    },\n    {\n      \"sku\": \"RN-1002\",\n      \"name\": \"Patchwork Crew Sweater\",\n      \"style\": \"Eclectic Grandpa\",\n      \"region\": \"Midwest\",\n      \"on_hand_units\": 46,\n      \"in_transit_units\": 0,\n      \"stores\": [\n        {\n          \"store_id\": \"MSP01\",\n          \"city\": \"Minneapolis\",\n          \"on_hand\": 9,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        },\n        {\n          \"store_id\": \"MSP02\",\n          \"city\": \"St. Paul\",\n          \"on_hand\": 8,\n          \"in_transit\": 0,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"CHI01\",\n          \"city\": \"Chicago\",\n          \"on_hand\": 11,\n          \"in_transit\": 0,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"STL01\",\n          \"city\": \"St. Louis\",\n          \"on_hand\": 7,\n          \"in_transit\": 0,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"KCY01\",\n          \"city\": \"Kansas City\",\n          \"on_hand\": 6,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        },\n        {\n          \"store_id\": \"IND01\",\n          \"city\": \"Indianapolis\",\n          \"on_hand\": 5,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        }\n      ]\n    },\n    {\n      \"sku\": \"RN-1003\",\n      \"name\": \"Relaxed Utility Chore Jacket\",\n      \"style\": \"Utility Heritage\",\n      \"region\": \"Midwest\",\n      \"on_hand_units\": 63,\n      \"in_transit_units\": 0,\n      \"stores\": [\n        {\n          \"store_id\": \"MSP01\",\n          \"city\": \"Minneapolis\",\n          \"on_hand\": 12,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        },\n        {\n          \"store_id\": \"MSP02\",\n          \"city\": \"St. Paul\",\n          \"on_hand\": 11,\n          \"in_transit\": 0,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"CHI01\",\n          \"city\": \"Chicago\",\n          \"on_hand\": 10,\n          \"in_transit\": 0,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"STL01\",\n          \"city\": \"St. Louis\",\n          \"on_hand\": 13,\n          \"in_transit\": 0,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"KCY01\",\n          \"city\": \"Kansas City\",\n          \"on_hand\": 9,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        },\n        {\n          \"store_id\": \"IND01\",\n          \"city\": \"Indianapolis\",\n          \"on_hand\": 8,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        }\n      ]\n    },\n    {\n      \"sku\": \"RN-1004\",\n      \"name\": \"Wide-Leg Carpenter Jean\",\n      \"style\": \"Workwear Revival\",\n      \"region\": \"Midwest\",\n      \"on_hand_units\": 70,\n      \"in_transit_units\": 0,\n      \"stores\": [\n        {\n          \"store_id\": \"MSP01\",\n          \"city\": \"Minneapolis\",\n          \"on_hand\": 8,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        },\n        {\n          \"store_id\": \"MSP02\",\n          \"city\": \"St. Paul\",\n          \"on_hand\": 10,\n          \"in_transit\": 0,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"CHI01\",\n          \"city\": \"Chicago\",\n          \"on_hand\": 12,\n          \"in_transit\": 0,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"STL01\",\n          \"city\": \"St. Louis\",\n          \"on_hand\": 18,\n          \"in_transit\": 0,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"KCY01\",\n          \"city\": \"Kansas City\",\n          \"on_hand\": 13,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        },\n        {\n          \"store_id\": \"IND01\",\n          \"city\": \"Indianapolis\",\n          \"on_hand\": 9,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        }\n      ]\n    },\n    {\n      \"sku\": \"RN-1005\",\n      \"name\": \"Boxy Cropped Tee\",\n      \"style\": \"Indie Sleaze 2.0\",\n      \"region\": \"Midwest\",\n      \"on_hand_units\": 70,\n      \"in_transit_units\": 0,\n      \"stores\": [\n        {\n          \"store_id\": \"MSP01\",\n          \"city\": \"Minneapolis\",\n          \"on_hand\": 15,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        },\n        {\n          \"store_id\": \"MSP02\",\n          \"city\": \"St. Paul\",\n          \"on_hand\": 12,\n          \"in_transit\": 0,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"CHI01\",\n          \"city\": \"Chicago\",\n          \"on_hand\": 14,\n          \"in_transit\": 0,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"STL01\",\n          \"city\": \"St. Louis\",\n          \"on_hand\": 10,\n          \"in_transit\": 0,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"KCY01\",\n          \"city\": \"Kansas City\",\n          \"on_hand\": 11,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        },\n        {\n          \"store_id\": \"IND01\",\n          \"city\": \"Indianapolis\",\n          \"on_hand\": 8,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        }\n      ]\n    },\n    {\n      \"sku\": \"RN-1006\",\n      \"name\": \"Quiet Luxe Tailored Trouser\",\n      \"style\": \"Quiet Luxury\",\n      \"region\": \"Midwest\",\n      \"on_hand_units\": 53,\n      \"in_transit_units\": 0,\n      \"stores\": [\n        {\n          \"store_id\": \"MSP01\",\n          \"city\": \"Minneapolis\",\n          \"on_hand\": 7,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        },\n        {\n          \"store_id\": \"MSP02\",\n          \"city\": \"St. Paul\",\n          \"on_hand\": 9,\n          \"in_transit\": 0,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"CHI01\",\n          \"city\": \"Chicago\",\n          \"on_hand\": 10,\n          \"in_transit\": 0,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"STL01\",\n          \"city\": \"St. Louis\",\n          \"on_hand\": 12,\n          \"in_transit\": 0,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"KCY01\",\n          \"city\": \"Kansas City\",\n          \"on_hand\": 8,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        },\n        {\n          \"store_id\": \"IND01\",\n          \"city\": \"Indianapolis\",\n          \"on_hand\": 7,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        }\n      ]\n    },\n    {\n      \"sku\": \"RN-1007\",\n      \"name\": \"Soft Touch Polo Sweater\",\n      \"style\": \"Quiet Prep\",\n      \"region\": \"Midwest\",\n      \"on_hand_units\": 54,\n      \"in_transit_units\": 0,\n      \"stores\": [\n        {\n          \"store_id\": \"MSP01\",\n          \"city\": \"Minneapolis\",\n          \"on_hand\": 13,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        },\n        {\n          \"store_id\": \"MSP02\",\n          \"city\": \"St. Paul\",\n          \"on_hand\": 11,\n          \"in_transit\": 0,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"CHI01\",\n          \"city\": \"Chicago\",\n          \"on_hand\": 9,\n          \"in_transit\": 0,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"STL01\",\n          \"city\": \"St. Louis\",\n          \"on_hand\": 6,\n          \"in_transit\": 0,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"KCY01\",\n          \"city\": \"Kansas City\",\n          \"on_hand\": 7,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        },\n        {\n          \"store_id\": \"IND01\",\n          \"city\": \"Indianapolis\",\n          \"on_hand\": 8,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        }\n      ]\n    },\n    {\n      \"sku\": \"RN-1008\",\n      \"name\": \"Oversized Barn Jacket\",\n      \"style\": \"Workwear Revival\",\n      \"region\": \"Midwest\",\n      \"on_hand_units\": 57,\n      \"in_transit_units\": 0,\n      \"stores\": [\n        {\n          \"store_id\": \"MSP01\",\n          \"city\": \"Minneapolis\",\n          \"on_hand\": 9,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        },\n        {\n          \"store_id\": \"MSP02\",\n          \"city\": \"St. Paul\",\n          \"on_hand\": 8,\n          \"in_transit\": 0,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"CHI01\",\n          \"city\": \"Chicago\",\n          \"on_hand\": 10,\n          \"in_transit\": 0,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"STL01\",\n          \"city\": \"St. Louis\",\n          \"on_hand\": 14,\n          \"in_transit\": 0,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"KCY01\",\n          \"city\": \"Kansas City\",\n          \"on_hand\": 9,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        },\n        {\n          \"store_id\": \"IND01\",\n          \"city\": \"Indianapolis\",\n          \"on_hand\": 7,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        }\n      ]\n    },\n    {\n      \"sku\": \"RN-1009\",\n      \"name\": \"Pleated Mini Skirt\",\n      \"style\": \"Quiet Prep\",\n      \"region\": \"Midwest\",\n      \"on_hand_units\": 51,\n      \"in_transit_units\": 0,\n      \"stores\": [\n        {\n          \"store_id\": \"MSP01\",\n          \"city\": \"Minneapolis\",\n          \"on_hand\": 11,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        },\n        {\n          \"store_id\": \"MSP02\",\n          \"city\": \"St. Paul\",\n          \"on_hand\": 10,\n          \"in_transit\": 0,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"CHI01\",\n          \"city\": \"Chicago\",\n          \"on_hand\": 9,\n          \"in_transit\": 0,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"STL01\",\n          \"city\": \"St. Louis\",\n          \"on_hand\": 8,\n          \"in_transit\": 0,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"KCY01\",\n          \"city\": \"Kansas City\",\n          \"on_hand\": 7,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        },\n        {\n          \"store_id\": \"IND01\",\n          \"city\": \"Indianapolis\",\n          \"on_hand\": 6,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        }\n      ]\n    },\n    {\n      \"sku\": \"RN-1010\",\n      \"name\": \"Washed Mesh Layer Top\",\n      \"style\": \"Indie Sleaze 2.0\",\n      \"region\": \"Midwest\",\n      \"on_hand_units\": 60,\n      \"in_transit_units\": 0,\n      \"stores\": [\n        {\n          \"store_id\": \"MSP01\",\n          \"city\": \"Minneapolis\",\n          \"on_hand\": 12,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        },\n        {\n          \"store_id\": \"MSP02\",\n          \"city\": \"St. Paul\",\n          \"on_hand\": 13,\n          \"in_transit\": 0,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"CHI01\",\n          \"city\": \"Chicago\",\n          \"on_hand\": 11,\n          \"in_transit\": 0,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"STL01\",\n          \"city\": \"St. Louis\",\n          \"on_hand\": 8,\n          \"in_transit\": 0,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"KCY01\",\n          \"city\": \"Kansas City\",\n          \"on_hand\": 9,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        },\n        {\n          \"store_id\": \"IND01\",\n          \"city\": \"Indianapolis\",\n          \"on_hand\": 7,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        }\n      ]\n    },\n    {\n      \"sku\": \"RN-1011\",\n      \"name\": \"Chunky Wool Grandpa Cardigan\",\n      \"style\": \"Eclectic Grandpa\",\n      \"region\": \"Midwest\",\n      \"on_hand_units\": 17,\n      \"in_transit_units\": 2,\n      \"stores\": [\n        {\n          \"store_id\": \"MSP01\",\n          \"city\": \"Minneapolis\",\n          \"on_hand\": 2,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        },\n        {\n          \"store_id\": \"MSP02\",\n          \"city\": \"St. Paul\",\n          \"on_hand\": 1,\n          \"in_transit\": 0,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"CHI01\",\n          \"city\": \"Chicago\",\n          \"on_hand\": 5,\n          \"in_transit\": 2,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"STL01\",\n          \"city\": \"St. Louis\",\n          \"on_hand\": 4,\n          \"in_transit\": 0,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"KCY01\",\n          \"city\": \"Kansas City\",\n          \"on_hand\": 3,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        },\n        {\n          \"store_id\": \"IND01\",\n          \"city\": \"Indianapolis\",\n          \"on_hand\": 2,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        }\n      ]\n    },\n    {\n      \"sku\": \"RN-1012\",\n      \"name\": \"Relaxed Fit Carpenter Denim\",\n      \"style\": \"Workwear Revival\",\n      \"region\": \"Midwest\",\n      \"on_hand_units\": 61,\n      \"in_transit_units\": 4,\n      \"stores\": [\n        {\n          \"store_id\": \"MSP01\",\n          \"city\": \"Minneapolis\",\n          \"on_hand\": 3,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        },\n        {\n          \"store_id\": \"MSP02\",\n          \"city\": \"St. Paul\",\n          \"on_hand\": 2,\n          \"in_transit\": 0,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"CHI01\",\n          \"city\": \"Chicago\",\n          \"on_hand\": 7,\n          \"in_transit\": 0,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"STL01\",\n          \"city\": \"St. Louis\",\n          \"on_hand\": 28,\n          \"in_transit\": 4,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"KCY01\",\n          \"city\": \"Kansas City\",\n          \"on_hand\": 16,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        },\n        {\n          \"store_id\": \"IND01\",\n          \"city\": \"Indianapolis\",\n          \"on_hand\": 5,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        }\n      ]\n    },\n    {\n      \"sku\": \"RN-1013\",\n      \"name\": \"Minimalist Tailored Blazer\",\n      \"style\": \"Quiet Luxury\",\n      \"region\": \"Midwest\",\n      \"on_hand_units\": 27,\n      \"in_transit_units\": 1,\n      \"stores\": [\n        {\n          \"store_id\": \"MSP01\",\n          \"city\": \"Minneapolis\",\n          \"on_hand\": 0,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        },\n        {\n          \"store_id\": \"MSP02\",\n          \"city\": \"St. Paul\",\n          \"on_hand\": 4,\n          \"in_transit\": 1,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"CHI01\",\n          \"city\": \"Chicago\",\n          \"on_hand\": 12,\n          \"in_transit\": 0,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"STL01\",\n          \"city\": \"St. Louis\",\n          \"on_hand\": 6,\n          \"in_transit\": 0,\n          \"same_day_eligible\": true\n        },\n        {\n          \"store_id\": \"KCY01\",\n          \"city\": \"Kansas City\",\n          \"on_hand\": 3,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        },\n        {\n          \"store_id\": \"IND01\",\n          \"city\": \"Indianapolis\",\n          \"on_hand\": 2,\n          \"in_transit\": 0,\n          \"same_day_eligible\": false\n        }\n      ]\n    }\n  ]\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Sales",
+      "item": [
+        {
+          "name": "GET /v1/sales/trends/viral",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "sales",
+                "trends",
+                "viral"
+              ],
+              "query": [
+                {
+                  "key": "region",
+                  "value": "Midwest"
+                },
+                {
+                  "key": "window_days",
+                  "value": "7"
+                }
+              ],
+              "raw": "{{baseUrl}}/v1/sales/trends/viral?region=Midwest&window_days=7"
+            }
+          },
+          "response": [
+            {
+              "name": "GET /v1/sales/trends/viral",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "sales",
+                    "trends",
+                    "viral"
+                  ],
+                  "query": [
+                    {
+                      "key": "region",
+                      "value": "Midwest"
+                    },
+                    {
+                      "key": "window_days",
+                      "value": "7"
+                    }
+                  ],
+                  "raw": "{{baseUrl}}/v1/sales/trends/viral?region=Midwest&window_days=7"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "body": "{\n  \"region\": \"Midwest\",\n  \"window_days\": 7,\n  \"trends\": [\n    {\n      \"sku\": \"RN-1008\",\n      \"name\": \"Oversized Barn Jacket\",\n      \"style\": \"Workwear Revival\",\n      \"category\": \"Outerwear\",\n      \"signal\": \"SPIKING\",\n      \"growth\": 50,\n      \"velocity_score\": 70,\n      \"window_days\": 7\n    },\n    {\n      \"sku\": \"RN-1011\",\n      \"name\": \"Chunky Wool Grandpa Cardigan\",\n      \"style\": \"Eclectic Grandpa\",\n      \"category\": \"Knitwear\",\n      \"signal\": \"SPIKING\",\n      \"growth\": 38.5,\n      \"velocity_score\": 60,\n      \"window_days\": 7\n    },\n    {\n      \"sku\": \"RN-1003\",\n      \"name\": \"Relaxed Utility Chore Jacket\",\n      \"style\": \"Utility Heritage\",\n      \"category\": \"Outerwear\",\n      \"signal\": \"SPIKING\",\n      \"growth\": 35.3,\n      \"velocity_score\": 76.7,\n      \"window_days\": 7\n    },\n    {\n      \"sku\": \"RN-1004\",\n      \"name\": \"Wide-Leg Carpenter Jean\",\n      \"style\": \"Workwear Revival\",\n      \"category\": \"Denim\",\n      \"signal\": \"SPIKING\",\n      \"growth\": 35,\n      \"velocity_score\": 90,\n      \"window_days\": 7\n    },\n    {\n      \"sku\": \"RN-1001\",\n      \"name\": \"Heritage Cable Cardigan\",\n      \"style\": \"Eclectic Grandpa\",\n      \"category\": \"Knitwear\",\n      \"signal\": \"SPIKING\",\n      \"growth\": 29.2,\n      \"velocity_score\": 100,\n      \"window_days\": 7\n    },\n    {\n      \"sku\": \"RN-1012\",\n      \"name\": \"Relaxed Fit Carpenter Denim\",\n      \"style\": \"Workwear Revival\",\n      \"category\": \"Denim\",\n      \"signal\": \"SPIKING\",\n      \"growth\": 22,\n      \"velocity_score\": 83.3,\n      \"window_days\": 7\n    },\n    {\n      \"sku\": \"RN-1010\",\n      \"name\": \"Washed Mesh Layer Top\",\n      \"style\": \"Indie Sleaze 2.0\",\n      \"category\": \"Tops\",\n      \"signal\": \"RISING\",\n      \"growth\": 16.7,\n      \"velocity_score\": 58.3,\n      \"window_days\": 7\n    },\n    {\n      \"sku\": \"RN-1006\",\n      \"name\": \"Quiet Luxe Tailored Trouser\",\n      \"style\": \"Quiet Luxury\",\n      \"category\": \"Bottoms\",\n      \"signal\": \"RISING\",\n      \"growth\": 15.6,\n      \"velocity_score\": 61.7,\n      \"window_days\": 7\n    },\n    {\n      \"sku\": \"RN-1013\",\n      \"name\": \"Minimalist Tailored Blazer\",\n      \"style\": \"Quiet Luxury\",\n      \"category\": \"Outerwear\",\n      \"signal\": \"RISING\",\n      \"growth\": 15,\n      \"velocity_score\": 38.3,\n      \"window_days\": 7\n    },\n    {\n      \"sku\": \"RN-1002\",\n      \"name\": \"Patchwork Crew Sweater\",\n      \"style\": \"Eclectic Grandpa\",\n      \"category\": \"Knitwear\",\n      \"signal\": \"RISING\",\n      \"growth\": 13.9,\n      \"velocity_score\": 68.3,\n      \"window_days\": 7\n    }\n  ]\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Analytics",
+      "item": [
+        {
+          "name": "POST /v1/analytics/pulse/query",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"region\": \"Midwest\",\n  \"question\": \"What should I act on today in the Midwest?\",\n  \"limit\": 5\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "analytics",
+                "pulse",
+                "query"
+              ],
+              "raw": "{{baseUrl}}/v1/analytics/pulse/query"
+            }
+          },
+          "response": [
+            {
+              "name": "POST /v1/analytics/pulse/query",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"region\": \"Midwest\",\n  \"question\": \"What should I act on today in the Midwest?\",\n  \"limit\": 5\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "analytics",
+                    "pulse",
+                    "query"
+                  ],
+                  "raw": "{{baseUrl}}/v1/analytics/pulse/query"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "body": "{\n  \"region\": \"Midwest\",\n  \"question\": \"What should I act on today in the Midwest?\",\n  \"narrative\": \"Pulse reviewed POS sales, inventory, and catalog attributes to prioritize the highest-value actions.\",\n  \"insights\": [\n    {\n      \"sku\": \"RN-1011\",\n      \"name\": \"Chunky Wool Grandpa Cardigan\",\n      \"style\": \"Eclectic Grandpa\",\n      \"pulse_score\": 66.5,\n      \"action\": \"REORDER\",\n      \"why\": [\n        \"Demand is up 38.5% week over week.\",\n        \"Regional stock is running lean.\"\n      ]\n    },\n    {\n      \"sku\": \"RN-1013\",\n      \"name\": \"Minimalist Tailored Blazer\",\n      \"style\": \"Quiet Luxury\",\n      \"pulse_score\": 53,\n      \"action\": \"SAME_DAY_FULFILLMENT\",\n      \"why\": [\n        \"Nearby stores can save the sale through same-day fulfillment.\"\n      ]\n    },\n    {\n      \"sku\": \"RN-1012\",\n      \"name\": \"Relaxed Fit Carpenter Denim\",\n      \"style\": \"Workwear Revival\",\n      \"pulse_score\": 52.3,\n      \"action\": \"TRANSFER\",\n      \"why\": [\n        \"Demand is up 22% week over week.\",\n        \"Store inventory is unevenly distributed.\"\n      ]\n    }\n  ],\n  \"trust\": {\n    \"grounded_in_data\": true,\n    \"deterministic_score_layer\": true,\n    \"source_systems\": [\n      \"POS\",\n      \"Inventory\",\n      \"Product Catalog\",\n      \"Warehouse\"\n    ]\n  }\n}"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Replenishment",
+      "item": [
+        {
+          "name": "GET /v1/replenishment/recommendations",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "v1",
+                "replenishment",
+                "recommendations"
+              ],
+              "query": [
+                {
+                  "key": "region",
+                  "value": "Midwest"
+                }
+              ],
+              "raw": "{{baseUrl}}/v1/replenishment/recommendations?region=Midwest"
+            }
+          },
+          "response": [
+            {
+              "name": "GET /v1/replenishment/recommendations",
+              "originalRequest": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "v1",
+                    "replenishment",
+                    "recommendations"
+                  ],
+                  "query": [
+                    {
+                      "key": "region",
+                      "value": "Midwest"
+                    }
+                  ],
+                  "raw": "{{baseUrl}}/v1/replenishment/recommendations?region=Midwest"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                },
+                {
+                  "key": "Access-Control-Allow-Origin",
+                  "value": "*"
+                }
+              ],
+              "body": "{\n  \"region\": \"Midwest\",\n  \"recommendations\": [\n    {\n      \"sku\": \"RN-1011\",\n      \"action\": \"REORDER\",\n      \"reason\": \"High demand + low stock across Midwest stores\",\n      \"recommended_units\": 24\n    },\n    {\n      \"sku\": \"RN-1012\",\n      \"action\": \"TRANSFER\",\n      \"from_store\": \"STL01\",\n      \"to_store\": [\n        \"MSP01\",\n        \"MSP02\"\n      ],\n      \"recommended_units\": 12,\n      \"reason\": \"Move excess store inventory into the strongest demand cluster\"\n    },\n    {\n      \"sku\": \"RN-1013\",\n      \"action\": \"SAME_DAY_FULFILLMENT\",\n      \"from_store\": \"MSP02\",\n      \"to_store\": \"MSP01\",\n      \"recommended_units\": 1,\n      \"reason\": \"Save the sale through nearby same-day fulfillment\"\n    }\n  ]\n}"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
