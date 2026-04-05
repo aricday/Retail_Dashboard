@@ -1057,19 +1057,37 @@ function parseBody(req) {
 
 function buildAssistantPrompt(region = 'Midwest') {
   const dashboard = summary(region);
-  const topAlerts = dashboard.top_alerts
-    .slice(0, 3)
-    .map((item) => `${item.sku} (${item.style}) -> ${item.pulse.recommended_action}, score ${item.pulse.pulse_score}`)
+
+  const kpiLines = [
+    `Trending SKUs: ${dashboard.kpis.trending_skus}`,
+    `Low stock risks: ${dashboard.kpis.low_stock_risks}`,
+    `Transfer candidates: ${dashboard.kpis.transfer_candidates}`,
+    `Same-day opportunities: ${dashboard.kpis.same_day_opportunities}`,
+    `Average pulse score: ${dashboard.kpis.avg_pulse_score}`
+  ].join(', ');
+
+  const alertLines = dashboard.top_alerts
+    .map((item) =>
+      `${item.sku} "${item.name}" (${item.style}) — action: ${item.pulse.recommended_action}, score: ${item.pulse.pulse_score}, growth: ${item.pulse.week_over_week_growth}%, on-hand: ${item.inventory.on_hand}, flags: ${item.pulse.flags.join('/')}. Reasons: ${item.pulse.reasons.join(' ')}`
+    )
+    .join('\n');
+
+  const styleLines = dashboard.style_summary
+    .map((s) => `${s.style}: avg growth ${s.avg_growth}%, avg pulse ${s.avg_pulse_score}, on-hand ${s.total_on_hand}`)
     .join('; ');
+
+  const insightLines = dashboard.insights.join(' ');
 
   return [
     'You are RETAILNEXT MERCHANDISING AI for a retail operations dashboard.',
-    'Be concise, actionable, and grounded in the provided data context.',
-    'When relevant, recommend one of: REORDER, TRANSFER, SAME_DAY_FULFILLMENT, MONITOR.',
-    'If data is missing, state that clearly instead of guessing.',
-    `Region in scope: ${region}.`,
-    `Current top alerts: ${topAlerts || 'No active alerts.'}`
-  ].join(' ');
+    'Be concise and actionable. Ground every answer strictly in the data below.',
+    'When recommending actions use: REORDER, TRANSFER, SAME_DAY_FULFILLMENT, or MONITOR.',
+    `Region: ${region}.`,
+    `\nKPIs — ${kpiLines}.`,
+    `\nStyle performance — ${styleLines}.`,
+    `\nTop actionable SKUs:\n${alertLines}`,
+    `\nKey insights: ${insightLines}`
+  ].join('\n');
 }
 
 function normalizeMessages(messages) {
@@ -1304,16 +1322,15 @@ const server = http.createServer(async (req, res) => {
 
       const model = process.env.OPENAI_MODEL || 'gpt-5.3';
       const systemPrompt = process.env.OPENAI_SYSTEM_PROMPT || buildAssistantPrompt(region);
-      const input = [
-        {
-          role: 'system',
-          content: [{ type: 'input_text', text: systemPrompt }]
-        },
-        ...messages.map((message) => ({
-          role: message.role,
-          content: [{ type: 'input_text', text: message.content }]
-        }))
-      ];
+      const input = messages.map((message) => ({
+        role: message.role,
+        content: [
+          {
+            type: message.role === 'assistant' ? 'output_text' : 'input_text',
+            text: message.content
+          }
+        ]
+      }));
 
       const openaiResponse = await fetch('https://api.openai.com/v1/responses', {
         method: 'POST',
@@ -1323,6 +1340,7 @@ const server = http.createServer(async (req, res) => {
         },
         body: JSON.stringify({
           model,
+          instructions: systemPrompt,
           input,
           temperature: 0.3
         })
