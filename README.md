@@ -76,8 +76,8 @@ Configure these environment variables before starting the API server:
 
 ```bash
 export OPENAI_API_KEY="your_openai_api_key"
-export OPENAI_MODEL="gpt-5.3" # optional
-export OPENAI_SYSTEM_PROMPT="Optional custom system prompt" # optional
+export OPENAI_MODEL=gpt-4o # optional
+export OPENAI_SYSTEM_PROMPT= # optional
 ```
 
 Notes:
