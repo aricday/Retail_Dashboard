@@ -1321,7 +1321,7 @@ const server = http.createServer(async (req, res) => {
         return sendJson(res, 400, { error: 'messages is required and must include at least one user message.' });
       }
 
-      const model = process.env.OPENAI_MODEL || 'gpt-5.3';
+      const model = process.env.OPENAI_MODEL || 'gpt-5.4-nano';
       const systemPrompt = process.env.OPENAI_SYSTEM_PROMPT || buildAssistantPrompt(region);
       const input = messages.map((message) => ({
         role: message.role,
