@@ -351,6 +351,39 @@ export default function App() {
             </div>
           </section>
 
+          <section className="panel chat-panel">
+            <div className="panel-header">
+              <h2>RETAILNEXT MERCHANDISING AI</h2>
+              <span>OpenAI-powered assistant embedded in the dashboard</span>
+            </div>
+            <div className="chat-thread">
+              {chatMessages.map((message, index) => (
+                <div key={`${message.role}-${index}`} className={`chat-bubble ${message.role}`}>
+                  <strong>{message.role === 'assistant' ? 'Assistant' : 'You'}</strong>
+                  <p>{message.content}</p>
+                </div>
+              ))}
+              {chatLoading ? <div className="chat-loading">Thinking…</div> : null}
+            </div>
+            <div className="chat-input-row">
+              <input
+                value={chatInput}
+                onChange={(event) => setChatInput(event.target.value)}
+                onKeyDown={(event) => {
+                  if (event.key === 'Enter' && !event.shiftKey) {
+                    event.preventDefault();
+                    sendChat();
+                  }
+                }}
+                placeholder="Ask: What should I act on today in the Midwest?"
+              />
+              <button onClick={sendChat} disabled={chatLoading || !chatInput.trim()}>
+                Send
+              </button>
+            </div>
+            {chatError ? <div className="chat-error">{chatError}</div> : null}
+          </section>
+
           <section className="panel table-panel">
             <div className="panel-header">
               <h2>SKU action table</h2>
@@ -392,39 +425,6 @@ export default function App() {
                 </tbody>
               </table>
             </div>
-          </section>
-
-          <section className="panel chat-panel">
-            <div className="panel-header">
-              <h2>RETAILNEXT MERCHANDISING AI</h2>
-              <span>OpenAI-powered assistant embedded in the dashboard</span>
-            </div>
-            <div className="chat-thread">
-              {chatMessages.map((message, index) => (
-                <div key={`${message.role}-${index}`} className={`chat-bubble ${message.role}`}>
-                  <strong>{message.role === 'assistant' ? 'Assistant' : 'You'}</strong>
-                  <p>{message.content}</p>
-                </div>
-              ))}
-              {chatLoading ? <div className="chat-loading">Thinking…</div> : null}
-            </div>
-            <div className="chat-input-row">
-              <input
-                value={chatInput}
-                onChange={(event) => setChatInput(event.target.value)}
-                onKeyDown={(event) => {
-                  if (event.key === 'Enter' && !event.shiftKey) {
-                    event.preventDefault();
-                    sendChat();
-                  }
-                }}
-                placeholder="Ask: What should I act on today in the Midwest?"
-              />
-              <button onClick={sendChat} disabled={chatLoading || !chatInput.trim()}>
-                Send
-              </button>
-            </div>
-            {chatError ? <div className="chat-error">{chatError}</div> : null}
           </section>
 
           <section className="panel">
